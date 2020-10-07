@@ -37,7 +37,7 @@ $userpage =  $protocol . '://' . $host1 . '/' .  'user' . '/' . $host2 . '/' . $
         <div class="page-content-top">
           <div> <i class="icon icon-pages icon-3x"></i> </div>
           <div>
-            <span>Add new pages to your marketplace</span>
+            <span>Add new Email Template to your marketplace</span>
           </div>
           <div class="private-setting-switch">
             <a href="#" class="btn-black-mdx" id="showpreview">Preview</a>
@@ -54,7 +54,7 @@ $userpage =  $protocol . '://' . $host1 . '/' .  'user' . '/' . $host2 . '/' . $
               <div class="row">
                 <div class="col-md-7">
                   <div class="form-group ">
-                    <label class="">Page Title</label>
+                    <label class="">Template Title</label>
                     <input class="form-control" type="text" name="pg_title" id="title" required maxlength="65" />
                     <!-- <span id ="titlespan">You have <span id = "titleleft">65</span> characters left.</span> -->
                   </div>
@@ -81,7 +81,7 @@ $userpage =  $protocol . '://' . $host1 . '/' .  'user' . '/' . $host2 . '/' . $
                 </div>
                 <div class="panel-box">
 
-                      <div class="pgcreate-frmarea  pgcrt-meta-seosec">
+                      <!-- <div class="pgcreate-frmarea  pgcrt-meta-seosec">
                             <h4 id = "seotitle">Meta Title of the SEO</h4>
                             <div class="pgcrt-meta-seobtn">
                                 <span class="pgcrt-link-cstmseo">Edit</span>
@@ -89,8 +89,8 @@ $userpage =  $protocol . '://' . $host1 . '/' .  'user' . '/' . $host2 . '/' . $
                             <div class="clearfix"></div>
                             <div class="seopg-link" id ="seolink">https://marketplace.arcadier.io/pages/meta-title-of-the-seo</div>  
                            <p id ="seodesc">This is the meta description of the seo the people can see when they find the site in the search engine</p>
-                      </div>
-
+                      </div> -->
+<!-- 
                       <div class="pgcreate-frmarea  pgcrt-meta-seoeditsec hide">
                             <div class="pgcrt-meta-seoedit">
                                <div class="row">
@@ -121,12 +121,12 @@ $userpage =  $protocol . '://' . $host1 . '/' .  'user' . '/' . $host2 . '/' . $
           <div class="pgcreat-btmbtn-sec">
             <div class="clearfix"></div>
           </div>
-        </div>
+        </div> -->
 
       </div>
 
   </div>
-  <div class="col-md-4 pgcreate-frm-r">
+  <!-- <div class="col-md-4 pgcreate-frm-r">
     <div class="panel-box">
       <div class="pgcreate-sbar">
         <div class="pgcreate-sbar-title">Status</div>
@@ -174,10 +174,10 @@ $userpage =  $protocol . '://' . $host1 . '/' .  'user' . '/' . $host2 . '/' . $
 
         </div>
       </div>
-    </div>
+    </div> -->
 
-  </div>
-  <div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
 </div>
 </form>
 </div>
@@ -260,34 +260,34 @@ $userpage =  $protocol . '://' . $host1 . '/' .  'user' . '/' . $host2 . '/' . $
   //             } );
 
 
-  var textarea = document.getElementById("metadescs1");
-  textarea.addEventListener("input", function() {
-    var maxlength = this.getAttribute("maxlength");
-    var currentLength = this.value.length;
+  // var textarea = document.getElementById("metadescs1");
+  // textarea.addEventListener("input", function() {
+  //   var maxlength = this.getAttribute("maxlength");
+  //   var currentLength = this.value.length;
 
-    if (currentLength >= maxlength) {
+  //   if (currentLength >= maxlength) {
 
-    } else {
-      $('#metaleft').text(maxlength - currentLength);
-      $('#metaleft').css('color', 'green');
+  //   } else {
+  //     $('#metaleft').text(maxlength - currentLength);
+  //     $('#metaleft').css('color', 'green');
 
-    }
-  });
+  //   }
+  // });
 
 
-  var textarea = document.getElementById("metatitle");
-  textarea.addEventListener("input", function() {
-    var maxlength = this.getAttribute("maxlength");
-    var currentLength = this.value.length;
+  // var textarea = document.getElementById("metatitle");
+  // textarea.addEventListener("input", function() {
+  //   var maxlength = this.getAttribute("maxlength");
+  //   var currentLength = this.value.length;
 
-    if (currentLength >= maxlength) {
+  //   if (currentLength >= maxlength) {
 
-    } else {
-      $('#metatitleleft').text(maxlength - currentLength);
-      $('#metatitleleft').css('color', 'green');
+  //   } else {
+  //     $('#metatitleleft').text(maxlength - currentLength);
+  //     $('#metatitleleft').css('color', 'green');
 
-    }
-  });
+  //   }
+  // });
 
 
   var textarea = document.getElementById("title");
@@ -444,37 +444,37 @@ $userpage =  $protocol . '://' . $host1 . '/' .  'user' . '/' . $host2 . '/' . $
 
   }
 
-  function GetContents2() {
+  // function GetContents2() {
 
 
-    data2 = CKEDITOR.instances.editor1.getData();
-    html = CKEDITOR.instances.editor1.getSnapshot();
-    dom = document.createElement("DIV");
-    dom.innerHTML = html;
-    plain_text = (dom.textContent || dom.innerText);
+  //   data2 = CKEDITOR.instances.editor1.getData();
+  //   html = CKEDITOR.instances.editor1.getSnapshot();
+  //   dom = document.createElement("DIV");
+  //   dom.innerHTML = html;
+  //   plain_text = (dom.textContent || dom.innerText);
 
 
-    meta = $('#metadescs1');
-    meta.text(data2);
-    var res = plain_text.charAt(plain_text.length - 1);
-  }
+  //   meta = $('#metadescs1');
+  //   meta.text(data2);
+  //   var res = plain_text.charAt(plain_text.length - 1);
+  // }
 
-  editor.on('change', function(ev) {
+  // editor.on('change', function(ev) {
 
-    var el = document.getElementById("metadescs1");
-    var text = $('#metadescs1').val();
-    var max = el.attributes.maxLength.value;
-    var currentLength = el.value.length;
+  //   var el = document.getElementById("metadescs1");
+  //   var text = $('#metadescs1').val();
+  //   var max = el.attributes.maxLength.value;
+  //   var currentLength = el.value.length;
 
-    if (el.value.length >= max) {
-      $('#metadescs1').val(text.substring(0, max));
-    } else {
-      $('#metaleft').text(max - currentLength);
-      $('#metaleft').css('color', 'green');
-      GetContents1();
-      //GetContents2();
-    }
-  });
+  //   if (el.value.length >= max) {
+  //     $('#metadescs1').val(text.substring(0, max));
+  //   } else {
+  //     $('#metaleft').text(max - currentLength);
+  //     $('#metaleft').css('color', 'green');
+  //     GetContents1();
+  //     //GetContents2();
+  //   }
+  // });
 
   CKEDITOR.config.removePlugins = 'elementspath';
 
@@ -609,14 +609,14 @@ $userpage =  $protocol . '://' . $host1 . '/' .  'user' . '/' . $host2 . '/' . $
       }
     }
 
-    $("#metadescs1").on("focus", function() {
-      var el = document.getElementById("metadescs1");
-      var text = $('#metadescs1').val();
-      var max = el.attributes.maxLength.value;
-      $(this).val(text.substring(0, max));
-    });
+    // $("#metadescs1").on("focus", function() {
+    //   var el = document.getElementById("metadescs1");
+    //   var text = $('#metadescs1').val();
+    //   var max = el.attributes.maxLength.value;
+    //   $(this).val(text.substring(0, max));
+    // });
 
-    maxLength(document.getElementById("metadescs1"));
+    // maxLength(document.getElementById("metadescs1"));
 
   });
 </script>
