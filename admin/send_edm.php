@@ -23,12 +23,13 @@ $userId = $result['ID'];
 
 $pageContent = file_get_contents(realpath('templates/' . $template));
 
-// $content =  "<h4 style=\"color:blue\"><span style=\"color:#000000;\">Hi&nbsp; </span>{{ Buyer Name }},</h4>\n\n<h4 style=\"color:blue\"><span style=\"color:#000000;\">We&#39;ve received your Order! </span></h4>\n\n<h4 style=\"color:blue\"><span style=\"color:#000000;\">From </span>{{ Merchant Name }}</h4>\n";
-
 $url = $baseUrl . '/api/v2/users/';
 $result = callAPI("GET", $admin_token['access_token'], $url, false);
 error_log('admin ' . json_encode($result));
 $admin_id = $result['ID'];
+
+
+//actual values should be fetched from API 
 
 $token = array(
     'Buyer Name'  => $buyer_name != '' ? $buyer_name : '',

@@ -13,31 +13,20 @@
     var customFieldPrefix = packageId.replace(/-/g, "");
     var userId = $('#userGuid').val();
     var isAvailable, isVisible, content, data1, data2, plain_text;
-    var dom;
-    var html;
     var preview_url = $('#path').val();
     var preview_url_edit = $('#urlpath').val();
     var timezone_offset_minutes = new Date().getTimezoneOffset();
     timezone_offset_minutes = timezone_offset_minutes == 0 ? 0 : -timezone_offset_minutes;
     var pagedids;
-    var strCount = 0;
+
     //run on creation page only
-    if (urlss.indexOf('/create_page.php') >= 0) {
-        // setInterval(savePreview, 3000);
-    }
-
-    //run of edit page only
-    if (urlss.indexOf('/edit_content.php') >= 0) {
-        //  setInterval(savePreviewEdit, 3000);
-    }
-
 
     function savePageContent()
     {
         $('#save').addClass('disabled');
 
         data1 = CKEDITOR.instances.editor1.getData();
-        var data = { 'userId': userId, 'title': $('#title').val(), 'content': data1, 'pageURL': marketplace + $('#metaurl').val(), 'timezone': timezone_offset_minutes, 'pageURLshort': '/pages/' + $('#metaurl').val(), 'stylesheet': stylepath };
+        var data = { 'userId': userId, 'title': $('#title').val(), 'content': data1 };
         var apiUrl = packagePath + '/save_new_content.php';
         $.ajax({
             url: apiUrl,
@@ -115,16 +104,14 @@
             success: function (result)
             {
                 console.log(JSON.stringify(result));
-                // toastr.success('Page Content successfully deleted.');
-                // location.reload();
+                toastr.success('Sample Email has been sent. Please check your email.');
+                location.reload();
             },
             error: function (jqXHR, status, err)
             {
             }
         });
     }
-
-
 
 
     $(document).ready(function ()
@@ -216,28 +203,6 @@
         });
 
 
-
-
-
-
-        $('#showpreview').click(function ()
-        {
-            $('#showpreview').attr("target", target = "_blank")
-            $("#showpreview").attr("href", preview_url);
-
-            //
-        });
-
-        //preview EDIT
-        $('#showpreviewEdit').click(function ()
-        {
-            $('#showpreviewEdit').attr("target", target = "_blank");
-            $("#showpreviewEdit").attr("href", preview_url_edit);
-
-
-            //
-        });
-
         //cancel button
         $('#popup_btnconfirm_cancel').click(function ()
         {
@@ -318,92 +283,8 @@
             }
         }
 
-        function validateMetadesc()
-        {
-            var el = document.getElementById("metadescs1");
-            var text = $('#metadescs1').val();
-            var max = el.attributes.maxLength.value;
-            $('#metadescs1').val(text.substring(0, max));
-        }
-
-
-        //EDIT SEO FOR UPDATE PAGE
-        $('#metaurl').bind('keydown', function (event)
-        {
-            switch (event.keyCode) {
-                case 8:  // Backspace
-                case 9:  // Tab
-                case 13: // Enter
-                case 37: // Left
-                case 38: // Up
-                case 39: // Right
-                case 40: // Down
-                    break;
-                default:
-                    var regex = new RegExp("^[A-Za-z0-9-]+$");
-                    var key = event.key;
-                    if (!regex.test(key)) {
-                        event.preventDefault();
-                        return false;
-                    }
-                    break;
-            }
-        });
 
 
 
-        $('#title').bind('keydown', function (event)
-        {
-            switch (event.keyCode) {
-                case 8:  // Backspace
-                case 9:  // Tab
-                case 13: // Enter
-                case 37: // Left
-                case 38: // Up
-                case 39: // Right
-                case 40: // Down
-                    break;
-                default:
-                    var regex = new RegExp("^[a-zA-Z0-9_.!',?() ]*$");
-                    var key = event.key;
-                    if (!regex.test(key)) {
-                        event.preventDefault();
-                        return false;
-                    }
-                    break;
-            }
-        });
-
-
-        $(function ()
-        {
-
-            $("#title").bind('paste', function ()
-            {
-                setTimeout(function ()
-                {
-                    var data = $('#title').val();
-                    var dataFull = data.replace(/[^\w\s]/gi, '');
-                    $('#title').val(dataFull);
-                });
-
-            });
-        });
-
-        $(function ()
-        {
-
-            $("#metaurl").bind('paste', function ()
-            {
-                setTimeout(function ()
-                {
-
-                    var data = $('#metaurl').val();
-                    var dataFull1 = data.replace(/[^\w\s]/gi, '');
-                    $('#metaurl').val(dataFull1);
-                });
-
-            });
-        });
     });
 })();

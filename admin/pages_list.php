@@ -7,23 +7,6 @@
 <a href="https://icons8.com/icon/79906/preview-pane"></a>
 <!-- end header -->
 <?php
-include 'callAPI.php';
-include 'admin_token.php';
-$server = $_SERVER['REQUEST_TIME'];
-
-$protocol = strpos(strtolower($_SERVER['SERVER_PROTOCOL']), 'https') === FALSE ? 'http' : 'https';
-$urlexp =   explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
-$host = $urlexp[0];
-$host1 = $urlexp[1];
-$host2 = $urlexp[2];
-$host3 = $urlexp[3];
-$host4 = $urlexp[4];
-$host5 = $urlexp[5];
-$userpage =  $protocol . '://' . $host1 . '/' .  'user' . '/' . $host2 . '/' . $host3 . '/' . 'getpages.php';
-
-$contentBodyJson = file_get_contents('php://input');
-$content = json_decode($contentBodyJson, true);
-$timezone = $_GET['tz'];
 
 ?>
 <div class="clearfix"></div>
@@ -61,12 +44,6 @@ $timezone = $_GET['tz'];
             <tbody>
               <tr>
                 <?php
-                $baseUrl = getMarketplaceBaseUrl();
-                $admin_token = getAdminToken();
-                $customFieldPrefix = getCustomFieldPrefix();
-
-                $url = $baseUrl . '/api/v2/content-pages';
-                $getPages = callAPI("GET", $admin_token['access_token'], $url, false);
 
                 $files = [];
                 $files = scandir(realpath('templates/'));
@@ -88,7 +65,7 @@ $timezone = $_GET['tz'];
                 ?>
                     <a href="edit_content.php?pageid=<?php echo $file; ?>"><i class="icon icon-edit"></i></a>
                     <a class="btn_delete_act" id="del"><i class="icon icon-delete"></i></a>
-                    <a id="editmail"><i class="icon icon-email"></i></a>
+                    <a id="editmail" class="editbutton"><i class="icon icon-email"></i></a>
 
                     </td>
               </tr>
@@ -240,7 +217,7 @@ $timezone = $_GET['tz'];
   });
 
 
-  jQuery('#editmail').click(function() {
+  jQuery('.editbutton').click(function() {
     var page_id = $(this).parents('tr').find('#filename').text();
     console.log(page_id);
     $('.record_id').val(page_id);
@@ -260,11 +237,6 @@ $timezone = $_GET['tz'];
     jQuery('#SendCustomMethod').hide();
     jQuery('#cover').hide();
   });
-
-
-
-
-
 
 
 
