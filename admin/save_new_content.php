@@ -30,12 +30,6 @@ error_log('title ' . $title);
 
 echo json_encode(['title' => $title]);
 
-// $dirTemplates =  realpath('templates/' . $title . '.html');
-
-// error_log('path ' .  $dirTemplates);
-
-// echo json_encode(['path' => $dirTemplates]);
-
 $fh = fopen('templates/' . $title . '.html', 'w');
 
 fwrite($fh, $contents);
@@ -44,69 +38,3 @@ fclose($fh);
 $htmlContent = file_get_contents(realpath('templates/' . $title . '.html'));
 
 echo json_encode(['contents' => $htmlContent]);
-
-$files = [];
-$files = scandir(realpath('templates/'));
-foreach ($files as $file) {
-    $files[] = $file;
-}
-
-echo json_encode(['files' => $files]);
-
-
-// $data = [
-//     'Title' => $title,
-//     'Content' => $contents,
-//     'ExternalURL' => $urls,
-//     'CreatedDateTime' => $timestamp2,
-//     'ModifiedDateTime' => $timestamp2,
-//     'Active' => true,
-//     'Available' => $isAvailbleTo,
-//     'VisibleTo' => $isVisibleTo,
-//     'Meta' => $meta2,
-// ];
-// $url = $baseUrl . '/api/v2/content-pages';
-// $result = callAPI("POST", $admin_token['access_token'], $url, $data);
-
-// //1.get the ID of the response
-// $pageid =  $result['ID'];
-// $meta = $result['Meta'];
-// $metaencode = json_decode($meta, true);
-
-// //2.get the value of the short and long url
-// $pageURL =  '/' . 'pages/' . $urls;
-// //3.get the value of long page url
-// $protocol = strpos(strtolower($_SERVER['SERVER_PROTOCOL']), 'https') === FALSE ? 'http' : 'https';
-// $urlexp =   explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
-// $host  = $urlexp[0];
-// error_log('host' . $host);
-// $host1 = $urlexp[1];
-// error_log('host1' . $host1);
-// $host2 = $urlexp[2];
-// error_log('host2' . $host2);
-// $host3 = $urlexp[3];
-// error_log('host3' . $host3);
-// $host4 = $urlexp[4];
-// error_log('host4' . $host4);
-// $host5 = $urlexp[5];
-// error_log('host5' . $host5);
-
-// $pathURL =  '/' .  'user' . '/' . $host2 . '/' . $host3 . '/' . 'getpages.php' . '?pageid=' . $pageid;
-// // POST THE DATA
-// $data = [
-//     'Key' => $shortURL,
-//     'Value' => $pathURL,
-
-// ];
-// $url = $baseUrl . '/api/v2/rewrite-rules';
-// $result = callAPI("POST", $admin_token['access_token'], $url, $data);
-
-// $styles = [
-//     'Key' => '/pages/css/styles.css',
-//     'Value' => '/' .  'user' . '/' . $host2 . '/' . $host3 . '/' . 'css' . '/' . 'styles.css',
-
-
-// ];
-
-// $url = $baseUrl . '/api/v2/rewrite-rules';
-// $result = callAPI("POST", $admin_token['access_token'], $url, $styles);

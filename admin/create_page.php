@@ -40,7 +40,7 @@ $userpage =  $protocol . '://' . $host1 . '/' .  'user' . '/' . $host2 . '/' . $
             <span>Add new Email Template to your marketplace</span>
           </div>
           <div class="private-setting-switch">
-            <a href="#" class="btn-black-mdx" id="showpreview">Preview</a>
+            <!-- <a href="#" class="btn-black-mdx" id="showpreview">Preview</a> -->
             <span class="grey-btn btn_delete_act">Cancel</span>
             <a href="#" class="save-btn" id="save">Save</a>
           </div>
@@ -60,7 +60,7 @@ $userpage =  $protocol . '://' . $host1 . '/' .  'user' . '/' . $host2 . '/' . $
                   </div>
                 </div>
 
-                <div class="col-md-12">
+                <div class="col-md-12" style="display:none">
                   <div class="form-group ">
                     <label class="">Web URL</label>
                     <div class="pgcrtseo-weburlsec">

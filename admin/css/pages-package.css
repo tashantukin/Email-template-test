@@ -5,10 +5,13 @@
 .page-pages-list .blsl-list-tblsec table tbody td ul,
 .page-pages-list .blsl-list-tblsec table tbody td li{ list-style: disc;  }
 .page-pages-list .icon.icon-edit { background-image: url(../images/edit_btn.svg); }
+.page-pages-list .icon.icon-email { background-image: url(../images/mail.svg); }
 /* ; */
 .page-pages-list .icon.icon-white-up { background-image: url(../images/white_up.svg); }
 
 .page-pages-list .icon.icon-white-down { background-image: url(../images/white_down.svg); }
+
+
 
 .page-pages-list #page-title,
 
@@ -80,12 +83,14 @@
 .popup-delete-confirm  .btn-black-mdx,
 
 .popup-delete-confirm .btn-blue { vertical-align: middle; border-radius: 0; }
+#SendCustomMethod .btn-blue { vertical-align: middle; border-radius: 0; }
+
 
 #del {
   margin-top: 5px;
 }
 
-.icon-edit {
+.icon-edit, .icon-email {
   margin-top: 5px;
 }
 
@@ -278,7 +283,19 @@ a.svg {
 }
 
 
-
+#SendCustomMethod .form-element label {
+  display: inline-block;
+  width: 100%;
+  font-size: 14px;
+  font-weight: 600;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color:
+#4d4d4d;
+margin-bottom: 5px;
+}
 
 /* #seodesc {
 display:block;

@@ -28,43 +28,10 @@
 
     //run of edit page only
     if (urlss.indexOf('/edit_content.php') >= 0) {
-        setInterval(savePreviewEdit, 3000);
+        //  setInterval(savePreviewEdit, 3000);
     }
 
-    function setTimezoneOffset()
-    {
-        var data = { 'timezone': timezone_offset_minutes };
-        var apiUrl = packagePath + '/load_pages.php';
-        $.ajax({
-            url: apiUrl,
-            method: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(data),
-            success: function (result)
-            {
-            },
-            error: function (jqXHR, status, err)
-            {
-            }
-        });
-    }
-    function setTimezoneOffsetindex()
-    {
-        var data = { 'timezone': timezone_offset_minutes };
-        var apiUrl = packagePath + '/pages_list.php';
-        $.ajax({
-            url: apiUrl,
-            method: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(data),
-            success: function (result)
-            {
-            },
-            error: function (jqXHR, status, err)
-            {
-            }
-        });
-    }
+
     function savePageContent()
     {
         $('#save').addClass('disabled');
@@ -80,10 +47,10 @@
             success: function (result)
             {
                 console.log(JSON.stringify(result));
-                toastr.success('Page Contents successfully saved.');
+                toastr.success('New email template successfully saved.');
                 $('#title').val('');
                 $('#save').removeClass('disabled');
-                // window.location.href = indexPath;
+                window.location.href = indexPath;
             },
             error: function (jqXHR, status, err)
             {
@@ -91,51 +58,10 @@
         });
     }
 
-    function savePreview()
-    {
-        data1 = CKEDITOR.instances.editor1.getData();
-        var data = { 'userId': userId, 'title': $('#title').val(), 'page': data1 };
-
-        var apiUrl = packagePath + '/save_preview.php';
-        $.ajax({
-            url: apiUrl,
-            method: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(data),
-            success: function (result)
-            {
-            },
-            error: function (jqXHR, status, err)
-            {
-            }
-        });
-    }
-
-
-    function savePreviewEdit()
-    {
-        data1 = CKEDITOR.instances.editor1.getData();
-        var data = { 'userId': userId, 'title': $('#title').val(), 'page': data1 };
-        var apiUrl = packagePath + '/save_preview.php';
-        $.ajax({
-            url: apiUrl,
-            method: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify(data),
-            success: function (result)
-            {
-
-
-            },
-            error: function (jqXHR, status, err)
-            {
-            }
-        });
-    }
     function saveModifiedPageContent()
     {
         data1 = CKEDITOR.instances.editor1.getData();
-        var data = { 'pageId': $('#pageid').val(), 'userId': userId, 'title': $('#title').val(), 'content': data1, 'pageURL': marketplace + $('#metaurl').val(), 'metadesc': $('#metadesc').val(), 'visibility': isVisible, 'availability': isAvailable, 'timezone': timezone_offset_minutes, 'pageURLshort': '/pages/' + $('#metaurl').val() };
+        var data = { 'pageId': $('#pageid').val(), 'userId': userId, 'title': $('#title').val(), 'content': data1 };
         var apiUrl = packagePath + '/save_modified_content.php';
         $.ajax({
             url: apiUrl,
@@ -144,6 +70,7 @@
             data: JSON.stringify(data),
             success: function (result)
             {
+                console.log(JSON.stringify(result));
                 toastr.success('Page Contents successfully updated.');
                 $('#title').val('');
                 window.location.href = indexPath;
@@ -166,6 +93,7 @@
             data: JSON.stringify(data),
             success: function (result)
             {
+                console.log(JSON.stringify(result));
                 toastr.success('Page Content successfully deleted.');
                 location.reload();
             },
@@ -175,21 +103,29 @@
         });
     }
 
-    function getMarketplaceCustomFields(callback)
+    function sendMail()
     {
-        var apiUrl = '/api/v2/marketplaces'
+        var data = { 'template': $('.record_id').val(), 'userId': userId, 'to': $('#to').val(), 'from': $('#from').val(), 'buyerName': $('#buyerName').val(), 'merchantName': $('#merchantName').val(), 'invoice': $('#invoiceID').val() };
+        var apiUrl = packagePath + '/send_edm.php';
         $.ajax({
             url: apiUrl,
-            method: 'GET',
+            method: 'POST',
             contentType: 'application/json',
+            data: JSON.stringify(data),
             success: function (result)
             {
-                if (result) {
-                    callback(result.CustomFields);
-                }
+                console.log(JSON.stringify(result));
+                // toastr.success('Page Content successfully deleted.');
+                // location.reload();
+            },
+            error: function (jqXHR, status, err)
+            {
             }
         });
     }
+
+
+
 
     $(document).ready(function ()
     {
@@ -253,14 +189,12 @@
         $('#edit').click(function ()
         {
 
-            if ($("#title").val() == "" || data1 == "" || $('#metadesc') == "") {
+            if ($("#title").val() == "" || data1 == "") {
                 console.log('true');
                 toastr.error('Please fill in empty fields.');
 
             }
-            else if ($("#metaurl").val() == "") {
-                toastr.error('URL is required.');
-            } else {
+            else {
                 saveModifiedPageContent();
             }
         });
@@ -273,6 +207,18 @@
             deletePage();
             //
         });
+
+        $('#popup_sendMail').click(function ()
+        {
+            sendMail();
+            // deletePage();
+            //
+        });
+
+
+
+
+
 
         $('#showpreview').click(function ()
         {
