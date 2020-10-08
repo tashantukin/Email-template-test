@@ -9,14 +9,9 @@
     var re = /([a-f0-9]{8}(?:-[a-f0-9]{4}){3}-[a-f0-9]{12})/i;
     var packageId = re.exec(scriptSrc.toLowerCase())[1];
     var marketplace = scriptSrc.replace('/admin/plugins/' + packageId + '/scripts/package.js', '/pages/').trim();
-    var stylepath = scriptSrc.replace('/admin/plugins/' + packageId + '/scripts/package.js', '/user/plugins/' + packageId + '/css/styles.css').trim();
-    var customFieldPrefix = packageId.replace(/-/g, "");
     var userId = $('#userGuid').val();
-    var isAvailable, isVisible, content, data1, data2, plain_text;
-    var preview_url = $('#path').val();
-    var preview_url_edit = $('#urlpath').val();
-    var timezone_offset_minutes = new Date().getTimezoneOffset();
-    timezone_offset_minutes = timezone_offset_minutes == 0 ? 0 : -timezone_offset_minutes;
+    var data1;
+
     var pagedids;
 
     //run on creation page only
@@ -113,21 +108,11 @@
         });
     }
 
-
     $(document).ready(function ()
     {
 
         $('.paging').css('margin', 'auto');
 
-        if (urlss.indexOf('/create_page.php') >= 0) {
-            if (isVisible == null || isAvailable == null) {
-                $('input:radio[name="opt_del"]').filter('[value="0"]').attr('checked', true);
-                isAvailable = $("input[name='opt_del']:checked").val();
-                $('input:radio[name="visible-to"]').filter('[value="0"]').attr('checked', true);
-                isVisible = $("input[name='visible-to']:checked").val();
-            }
-
-        }
         var pathname = (window.location.pathname + window.location.search).toLowerCase();
 
         const index1 = '/admin/plugins/' + packageId;
@@ -137,38 +122,12 @@
             window.location = pagelist + '?tz=' + timezone_offset_minutes;
         }
 
-        //set the marketplace URL
-        $('#marketplaceURL').text(marketplace);
-        //check availability
-        $('input:radio[name="opt_del"]').change(function ()
-        {
-            isAvailable = $("input[name='opt_del']:checked").val();
-            console.log(isAvailable);
-            if (isAvailable) {
-            }
-        });
 
-        // check the visibilty
-        $('input:radio[name="visible-to"]').change(function ()
-        {
-            isVisible = $("input[name='visible-to']:checked").val();
-            if (isVisible) {
-            }
-        });
         //save the page contents
         $('#save').click(function ()
         {
 
-            // validateMetadesc();
-
-            // if ($("#title").val() == "" || data1 == "" || $('#metadescs1') == "") {
-            //     toastr.error('Please fill in empty fields.');
-
-            // }
-            // else if ($("#metaurl").val() == "") {
-            //     toastr.error('URL is required.');
-            // } else {
-
+            //add field validations
             savePageContent();
             // }
         });
@@ -198,8 +157,7 @@
         $('#popup_sendMail').click(function ()
         {
             sendMail();
-            // deletePage();
-            //
+
         });
 
 
@@ -208,83 +166,6 @@
         {
             window.location.href = indexPath;
         });
-
-        //minimize button
-
-        if (urlss.indexOf('/create_page.php') >= 0) {
-            if ($('.pgcrtseo-aplyllink').text() == 'Save') {
-
-                // $('#editContent').click(function() {
-                $('#saveNew').click(function ()
-                {
-
-                    hasTitle = 0;
-                    hasDesc = 0;
-                    if ($("#metatitle").val() == "") {
-                        hasTitle = 1;
-                        toastr.error('Meta Title is required.');
-                    }
-                    else if ($('#metadescs1').val() == "") {
-                        hasDesc = 1;
-                        toastr.error('Meta  Description is required.');
-
-                    }
-                    else if (($("#metadescs1").val() == "" && $("#metatitle").val() == "")) {
-                        toastr.error('Meta Title and Description is required.');
-                    }
-
-                    else {
-
-                        $('.pgcrt-meta-seosec').removeClass('hide');
-                        $('.pgcrt-meta-seoeditsec').addClass('hide');
-                        //handle the values of seo details here
-                        $("#seotitle").text($('#metatitle').val());
-                        $('#seolink').text(marketplace + $('#metaurl').val());
-                        $('#seodesc').text($("#metadescs1").val());
-
-                    }
-
-                });
-            }
-        }
-        //updating the text field for mete description
-        if (urlss.indexOf('/edit_content.php') >= 0) {
-            // setInterval(savePreviewEdit, 3000);
-
-            if ($('.pgcrtseo-aplyllink').text() == 'Save') {
-                $('#editContent').click(function ()
-                {
-
-                    hasTitle = 0;
-                    hasDesc = 0;
-                    if ($("#metatitle").val() == "") {
-                        hasTitle = 1;
-                        toastr.error('Meta Title is required.');
-                    }
-                    else if ($('#metadesc').val() == "") {
-                        hasDesc = 1;
-                        toastr.error('Meta  Description is required.');
-
-                    }
-                    else if (($("#metadesc").val() == "" && $("#metatitle").val() == "")) {
-                        toastr.error('Meta Title and Description is required.');
-                    }
-
-                    else {
-                        $('.pgcrt-meta-seosec').removeClass('hide');
-                        $('.pgcrt-meta-seoeditsec').addClass('hide');
-                        //handle the values of seo details here
-                        $("#seotitle").text($('#metatitle').val());
-                        $('#seolink').text(marketplace + $('#metaurl').val());
-                        $('#seodesc').text($('#metadesc').val());
-                    }
-
-                });
-            }
-        }
-
-
-
 
     });
 })();

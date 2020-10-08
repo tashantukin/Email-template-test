@@ -1,16 +1,5 @@
-<title>Pages Create</title>
-<?php
-$protocol = strpos(strtolower($_SERVER['SERVER_PROTOCOL']), 'https') === FALSE ? 'http' : 'https';
-$urlexp =   explode("/", parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
-$host = $urlexp[0];
-$host1 = $urlexp[1];
-$host2 = $urlexp[2];
-$host3 = $urlexp[3];
-$host4 = $urlexp[4];
-$host5 = $urlexp[5];
+<title>Template Create</title>
 
-$userpage =  $protocol . '://' . $host1 . '/' .  'user' . '/' . $host2 . '/' . $host3 . '/' . 'show_preview.php';
-?>
 <!-- begin header -->
 <script src="https://cdn.ckeditor.com/4.11.4/full/ckeditor.js"></script>
 <!-- package css-->
@@ -30,8 +19,6 @@ $userpage =  $protocol . '://' . $host1 . '/' .  'user' . '/' . $host2 . '/' . $
 <!-- end header -->
 <div class="page-content">
   <div class="gutter-wrapper">
-    <input type="hidden" id="path" value=<?php echo $userpage; ?>>
-
     <form>
       <div class="panel-box">
         <div class="page-content-top">
@@ -40,7 +27,6 @@ $userpage =  $protocol . '://' . $host1 . '/' .  'user' . '/' . $host2 . '/' . $
             <span>Add new Email Template to your marketplace</span>
           </div>
           <div class="private-setting-switch">
-            <!-- <a href="#" class="btn-black-mdx" id="showpreview">Preview</a> -->
             <span class="grey-btn btn_delete_act">Cancel</span>
             <a href="#" class="save-btn" id="save">Save</a>
           </div>
@@ -56,7 +42,6 @@ $userpage =  $protocol . '://' . $host1 . '/' .  'user' . '/' . $host2 . '/' . $
                   <div class="form-group ">
                     <label class="">Template Title</label>
                     <input class="form-control" type="text" name="pg_title" id="title" required maxlength="65" />
-                    <!-- <span id ="titlespan">You have <span id = "titleleft">65</span> characters left.</span> -->
                   </div>
                 </div>
 
@@ -81,100 +66,11 @@ $userpage =  $protocol . '://' . $host1 . '/' .  'user' . '/' . $host2 . '/' . $
                 </div>
                 <div class="panel-box">
 
-                      <!-- <div class="pgcreate-frmarea  pgcrt-meta-seosec">
-                            <h4 id = "seotitle">Meta Title of the SEO</h4>
-                            <div class="pgcrt-meta-seobtn">
-                                <span class="pgcrt-link-cstmseo">Edit</span>
-                            </div>
-                            <div class="clearfix"></div>
-                            <div class="seopg-link" id ="seolink">https://marketplace.arcadier.io/pages/meta-title-of-the-seo</div>  
-                           <p id ="seodesc">This is the meta description of the seo the people can see when they find the site in the search engine</p>
-                      </div> -->
-<!-- 
-                      <div class="pgcreate-frmarea  pgcrt-meta-seoeditsec hide">
-                            <div class="pgcrt-meta-seoedit">
-                               <div class="row">
-                                   <div class="col-md-6">
-                                       <div class="form-group ">
-                                          <label class="">Meta Title </label>
-                                          <input class="form-control" type="text" name="meta_title"  id="metatitle" maxlength="65" />
-                                          <span id = "metatitlespan">You have <span id = "metatitleleft">65</span> characters left.</span>
-                                       </div>
-                                   </div>
-                                   <div class="col-md-6 pgcrtseo-aplybtnsec">
-                                        <span class="pgcrtseo-aplyllink" id="saveNew">Save</span>
-                                   </div> 
-                                   <div class="col-md-12">
-                                       <div class="form-group ">
-                                          <label class="">Meta Description </label>
-                                          
-                                          <textarea class="form-control" name="meta_desc" id="metadescs"  maxlength="300" style="display:none"; placeholder = "This is the meta description of the seo the people can see when they find the site in the search engine"></textarea>
-                  <textarea class="form-control" name="meta_desc" id="metadescs1" maxlength="170" placeholder="This is the meta description of the seo the people can see when they find the site in the search engine"></textarea>
-                  <span id="metadescspan">You have <span id="metaleft">170</span> characters left.</span>
-
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-          <div class="pgcreat-btmbtn-sec">
-            <div class="clearfix"></div>
-          </div>
-        </div> -->
-
+                   
       </div>
 
   </div>
-  <!-- <div class="col-md-4 pgcreate-frm-r">
-    <div class="panel-box">
-      <div class="pgcreate-sbar">
-        <div class="pgcreate-sbar-title">Status</div>
-        <div class="pgcreate-sbardesc ">
-          <div class="pgcreate-sbarcon pgfncyopt">
-            <div class="fancy-radio">
-              <input type="radio" value="0" name="opt_del" id="pg_avail_pub" class="" id="available">
-              <label for="pg_avail_pub"><span>Publish</span></label>
-            </div>
-          </div>
-
-          <div class="pgcreate-sbarcon pgfncyopt">
-            <div class="fancy-radio">
-              <input type="radio" value="1" name="opt_del" id="pg_avail_hide" class="" id="hide">
-              <label for="pg_avail_hide">Hide</label>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="panel-box">
-      <div class="pgcreate-sbar">
-        <div class="pgcreate-sbar-title">Visibility</div>
-        <div class="pgcreate-sbardesc ">
-          <div class="pgcreate-sbarcon pgfncyopt">
-            <div class="fancy-radio">
-              <input type="radio" value="0" name="visible-to" id="visible-to1" class="">
-              <label for="visible-to1"><span>All users</span></label>
-            </div>
-          </div>
-
-          <div class="pgcreate-sbarcon pgfncyopt">
-            <div class="fancy-radio">
-              <input type="radio" value="1" name="visible-to" id="visible-to2" class="">
-              <label for="visible-to2">Merchants and Registered Buyers</label>
-            </div>
-          </div>
-          <div class="pgcreate-sbarcon pgfncyopt">
-            <div class="fancy-radio">
-              <input type="radio" value="2" name="visible-to" id="visible-to3" class="">
-              <label for="visible-to3">Merchants only</label>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div> -->
+ 
 
 </div>
 <div class="clearfix"></div>
@@ -255,84 +151,8 @@ $userpage =  $protocol . '://' . $host1 . '/' .  'user' . '/' . $host2 . '/' . $
     ],
     extraPlugins: 'BuyerName, MerchantName, InvoiceID,TotalAmount'
   });
-  // var editor2 = CKEDITOR.replace( 'metadescs', {
-  //               toolbar: []
-  //             } );
-
-
-  // var textarea = document.getElementById("metadescs1");
-  // textarea.addEventListener("input", function() {
-  //   var maxlength = this.getAttribute("maxlength");
-  //   var currentLength = this.value.length;
-
-  //   if (currentLength >= maxlength) {
-
-  //   } else {
-  //     $('#metaleft').text(maxlength - currentLength);
-  //     $('#metaleft').css('color', 'green');
-
-  //   }
-  // });
-
-
-  // var textarea = document.getElementById("metatitle");
-  // textarea.addEventListener("input", function() {
-  //   var maxlength = this.getAttribute("maxlength");
-  //   var currentLength = this.value.length;
-
-  //   if (currentLength >= maxlength) {
-
-  //   } else {
-  //     $('#metatitleleft').text(maxlength - currentLength);
-  //     $('#metatitleleft').css('color', 'green');
-
-  //   }
-  // });
-
-
-  var textarea = document.getElementById("title");
-  textarea.addEventListener("input", function() {
-    var maxlength = this.getAttribute("maxlength");
-    var currentLength = this.value.length;
-
-    if (currentLength >= maxlength) {
-
-    } else {
-      $('#titleleft').text(maxlength - currentLength);
-      $('#titleleft').css('color', 'green');
-
-    }
-  });
-
-
-  $('#metatitle').blur(function() {
-    $('#metatitlespan').hide();
-  });
-
-  $('#metatitle').focus(function() {
-    $('#metatitlespan').show();
-  });
-
-
-  $('#metadescs1').blur(function() {
-    $('#metadescspan').hide();
-  });
-
-  $('#metadescs1').focus(function() {
-    $('#metadescspan').show();
-  });
-
-  function preview() {
-    var data1 = CKEDITOR.instances.editor1.getData();
-    var title = $('#title').val();
-    var url = $('#path').val();
-
-    var fullurl = url.concat('?pagetitle=', title, '&content=', data1);
-    $('#showpreview').attr("target", target = "_blank")
-    $("#showpreview").attr("href", fullurl);
-
-  }
-
+  
+  
 
   //insert another toolbar for ckeditor
 
@@ -444,37 +264,6 @@ $userpage =  $protocol . '://' . $host1 . '/' .  'user' . '/' . $host2 . '/' . $
 
   }
 
-  // function GetContents2() {
-
-
-  //   data2 = CKEDITOR.instances.editor1.getData();
-  //   html = CKEDITOR.instances.editor1.getSnapshot();
-  //   dom = document.createElement("DIV");
-  //   dom.innerHTML = html;
-  //   plain_text = (dom.textContent || dom.innerText);
-
-
-  //   meta = $('#metadescs1');
-  //   meta.text(data2);
-  //   var res = plain_text.charAt(plain_text.length - 1);
-  // }
-
-  // editor.on('change', function(ev) {
-
-  //   var el = document.getElementById("metadescs1");
-  //   var text = $('#metadescs1').val();
-  //   var max = el.attributes.maxLength.value;
-  //   var currentLength = el.value.length;
-
-  //   if (el.value.length >= max) {
-  //     $('#metadescs1').val(text.substring(0, max));
-  //   } else {
-  //     $('#metaleft').text(max - currentLength);
-  //     $('#metaleft').css('color', 'green');
-  //     GetContents1();
-  //     //GetContents2();
-  //   }
-  // });
 
   CKEDITOR.config.removePlugins = 'elementspath';
 
@@ -609,14 +398,6 @@ $userpage =  $protocol . '://' . $host1 . '/' .  'user' . '/' . $host2 . '/' . $
       }
     }
 
-    // $("#metadescs1").on("focus", function() {
-    //   var el = document.getElementById("metadescs1");
-    //   var text = $('#metadescs1').val();
-    //   var max = el.attributes.maxLength.value;
-    //   $(this).val(text.substring(0, max));
-    // });
-
-    // maxLength(document.getElementById("metadescs1"));
 
   });
 </script>

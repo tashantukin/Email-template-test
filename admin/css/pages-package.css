@@ -167,8 +167,6 @@ a.svg {
 
 }
 
-
-
   #campaigntable tbody > tr:last-child > td {
     border-bottom: 0px;
     margin: 0 auto;
@@ -176,10 +174,6 @@ a.svg {
     display: table; 
   }
   
-
-
-
-
 .dataTables_wrapper #pagination-insert .dataTables_paginate .paginate_button {
   box-sizing: border-box;
   display: inline-block;
