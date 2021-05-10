@@ -15,19 +15,16 @@ $invoice_number = $content['invoice'];
 $baseUrl = getMarketplaceBaseUrl();
 $admin_token = getAdminToken();
 $userToken = $_COOKIE["webapitoken"];
+
 $url = $baseUrl . '/api/v2/users/';
 $result = callAPI("GET", $userToken, $url, false);
 $userId = $result['ID'];
 
-// $total_amount = $content['template'];
-
-$pageContent = file_get_contents(realpath('templates/' . $template));
-
 $url = $baseUrl . '/api/v2/users/';
 $result = callAPI("GET", $admin_token['access_token'], $url, false);
-error_log('admin ' . json_encode($result));
 $admin_id = $result['ID'];
 
+$pageContent = file_get_contents(realpath('templates/' . $template));
 
 //actual values should be fetched from API 
 
@@ -37,7 +34,9 @@ $token = array(
     'Invoice ID' => $invoice_number != '' ? $invoice_number : ''
     // 'Total Amount' => '$70.00'
 );
+
 $pattern = '{{ %s }}';
+
 foreach ($token as $key => $val) {
     $varMap[sprintf($pattern, $key)] = $val;
 }

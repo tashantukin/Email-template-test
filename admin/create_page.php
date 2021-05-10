@@ -103,7 +103,8 @@
     // , items: [ 'Preview','Source']                            
     toolbar: [{
         name: 'document',
-        groups: ['document', 'doctools']
+        groups: ['document', 'doctools'],
+        items: [ 'Preview','Source']
       },
       {
         name: 'clipboard',
