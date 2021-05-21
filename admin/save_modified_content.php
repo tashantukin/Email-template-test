@@ -6,16 +6,26 @@ $content = json_decode($contentBodyJson, true);
 $timezone = $content['timezone'];
 $timezone_name = timezone_name_from_abbr("", $timezone * 60, false);
 date_default_timezone_set($timezone_name);
-$pageId = $content['pageId'];
+
+$baseUrl = getMarketplaceBaseUrl();
+$admin_token = getAdminToken();
+$customFieldPrefix = getCustomFieldPrefix();
+
+
 $userId = $content['userId'];
 $title = $content['title'];
 $contents = $content['content'];
+$subject = $content['subject'];
+$urls = $content['pageURL'];
+$description = $content['description'];
+$templateId = $content['template-id'];
 
-$fh = fopen('templates/' . $pageId, 'w');
 
-fwrite($fh, $contents);
-fclose($fh);
+//*save template contents inside a custom table -- Name: Templates
+$template_details = array('title' => $title, 'contents' => $contents, 'subject' => $subject, 'description' => $description, 'category' => 'Orders');
+echo json_encode(['contents' => $template_details ]);
+$url =  $baseUrl . '/api/v2/plugins/'. getPackageID() .'/custom-tables/Templates/rows/' . $templateId;
+echo json_encode(['contents' => $url ]);
+$result =  callAPI("PUT",$admin_token['access_token'], $url, $template_details);
 
-$htmlContent = file_get_contents(realpath('templates/' . $pageId));
-
-echo json_encode(['contents' => $htmlContent]);
+echo json_encode(['contents' => $result ]);

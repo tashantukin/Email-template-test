@@ -153,6 +153,10 @@
       list-style: disc outside none !important;
   }
   
+
+  .ckeditor {
+    height: fit-content;
+  }
   /* a {
     /* color: blue; */
     /* text-decoration: underline; */

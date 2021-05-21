@@ -1,9 +1,9 @@
 <?php
+include 'load_pages.php';
 $page_id = $_GET['pageid'];
-$pageContent = file_get_contents(realpath('templates/' . $page_id));
+$templateContent = getContent($page_id);
 
-$search = '.html';
-$templateName = str_replace($search, '', $page_id);
+//var_dump($templateContent['Records'][0]);
 
 ?>
 
@@ -47,7 +47,7 @@ $templateName = str_replace($search, '', $page_id);
                         <span class="grey-btn btn_delete_act">Cancel</span>
                         <a href="#" class="save-btn" id="edit">Save</a>
 
-                        <input type="hidden" id="pageid" value="<?php echo $page_id; ?>">
+                        <input type="hidden" id="pageid" value="<?php echo $templateContent['Records'][0]['Id']; ?>">
                     </div>
                 </div>
             </div>
@@ -60,12 +60,21 @@ $templateName = str_replace($search, '', $page_id);
                                 <div class="col-md-7">
                                     <div class="form-group ">
                                         <label class="">Template Title</label>
-                                        <input class="form-control" type="text" name="pg_title" value="<?php echo $templateName; ?>" id="title" />
+                                        <input class="form-control" type="text" name="pg_title" value="<?php echo $templateContent['Records'][0]['title']; ?>" id="title" />
+
+                                        <div class="form-group">
+                                        <label>Email Subject</label>
+                                        <input type="text" class="form-control required" name="subject" id="subject" value="<?php echo $templateContent['Records'][0]['subject'];  ?> ">
+                                        </div>
+
+                                        <label class="">Description</label>
+                                        <input class="form-control" type="text" name="pg_title" id="description" required maxlength="150" value="<?php echo $templateContent['Records'][0]['description'];  ?> " />   
+
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <label class="">Content</label> <br>
-                                    <textarea class="ckeditor" name="editor1" id="editor1"><?php echo $pageContent; ?> </textarea>
+                                    <textarea class="ckeditor" name="editor1" id="editor1"><?php echo $templateContent['Records'][0]['contents']; ?> </textarea>
                                 </div>
                                 <div id="display-post" style="width:700px;"></div>
                                 <div class="clearfix"></div>
@@ -251,6 +260,7 @@ $templateName = str_replace($search, '', $page_id);
 
 
     CKEDITOR.config.allowedContent = true;
+    CKEDITOR.config.height = '600px';
 </script>
 
 <script type="text/javascript">
@@ -337,5 +347,7 @@ $templateName = str_replace($search, '', $page_id);
 
     });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
 <script type="text/javascript" src="scripts/package.js"></script>
 <!-- end footer -->

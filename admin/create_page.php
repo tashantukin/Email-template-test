@@ -36,24 +36,24 @@
       <div class="row pgcreate-frmsec">
         <div class="col-md-8 pgcreate-frm-l ">
           <div class="panel-box">
-            <div class="pgcreate-frmarea form-area">
+            <div class="pgcreate-frmarea form-area box-email-template ">
               <div class="row">
                 <div class="col-md-7">
                   <div class="form-group ">
                     <label class="">Template Title</label>
                     <input class="form-control" type="text" name="pg_title" id="title" required maxlength="65" />
+
+                    <div class="form-group">
+                    <label>Email Subject</label>
+                    <input type="text" class="form-control required" name="subject" id="subject" value="">
+                    </div>
+
+                    <label class="">Description</label>
+                    <input class="form-control" type="text" name="pg_title" id="description" required maxlength="100" />
+
                   </div>
                 </div>
 
-                <div class="col-md-12" style="display:none">
-                  <div class="form-group ">
-                    <label class="">Web URL</label>
-                    <div class="pgcrtseo-weburlsec">
-                      <span id="marketplaceURL"></span>
-                      <input type="text" name="meta_weburl" id="metaurl" />
-                    </div>
-                  </div>
-                </div>
 
                 <div class="col-md-12">
                   <label class="">Content</label> <br>
@@ -104,7 +104,7 @@
     toolbar: [{
         name: 'document',
         groups: ['document', 'doctools'],
-        items: [ 'Preview','Source']
+        items: ['Preview','Source']
       },
       {
         name: 'clipboard',
@@ -150,7 +150,7 @@
       }
 
     ],
-    extraPlugins: 'BuyerName, MerchantName, InvoiceID,TotalAmount'
+    extraPlugins: 'BuyerName, MerchantName, InvoiceID, TotalAmount'
   });
   
   
@@ -267,6 +267,7 @@
 
 
   CKEDITOR.config.removePlugins = 'elementspath';
+  CKEDITOR.config.height = '600px';
 
 
   //TEST FUNCTION
@@ -402,5 +403,8 @@
 
   });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.js"></script>
 <script type="text/javascript" src="scripts/package.js"></script>
+
 <!-- end footer -->

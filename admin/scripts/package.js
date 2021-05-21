@@ -11,17 +11,78 @@
     var marketplace = scriptSrc.replace('/admin/plugins/' + packageId + '/scripts/package.js', '/pages/').trim();
     var userId = $('#userGuid').val();
     var data1;
-
+    var timezone_offset_minutes = new Date().getTimezoneOffset();
+    timezone_offset_minutes = timezone_offset_minutes == 0 ? 0 : -timezone_offset_minutes;
     var pagedids;
 
+    const baseURL = window.location.hostname;
+    const protocol = window.location.protocol;
+
     //run on creation page only
+    new Vue({
+        el: "#app",
+        data()
+        {
+            return {
+                templates: [],
+                orderTemplates: [],
+                paymentTemplates: [],
+                shippingTemplates: [],
+                userTemplates: []
+            }
+        },
+
+        filters: {
+            capitalize: function (str)
+            {
+                return str.charAt(0).toUpperCase() + str.slice(1);
+            },
+
+        },
+
+        methods: {
+            async getAllTemplates(action){
+                try {
+                    vm = this;
+                    const response = await axios({
+                    method: action,
+                    url: `${protocol}//${baseURL}/api/v2/plugins/${packageId}/custom-tables/Templates`,
+                   // data: data,
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                    })
+                    const templates = await response
+                    vm.templates = templates.data
+
+                    vm.orderTemplates = vm.templates.Records.filter((template) => template.category === 'Orders')
+                    vm.paymentTemplates = vm.templates.Records.filter((template) => template.category === 'Payment')
+                    vm.shippingTemplates = vm.templates.Records.filter((template) => template.category === 'Shipping')
+                    vm.userTemplates =  vm.templates.Records.filter((template) => template.category === 'Users')
+
+                    console.log(vm.templates);
+                    console.log(vm.orderTemplates);
+                    // return templates
+                
+                } catch (error) {
+                    console.log("error", error);
+                }
+            },
+        },
+        beforeMount(){
+            this.getAllTemplates('GET')
+         },
+
+
+    })
 
     function savePageContent()
     {
         $('#save').addClass('disabled');
 
         data1 = CKEDITOR.instances.editor1.getData();
-        var data = { 'userId': userId, 'title': $('#title').val(), 'content': data1 };
+        console.log(data1);
+        var data = { 'userId': userId, 'title': $('#title').val(), 'content': data1,'subject': $('#subject').val(), 'description' : $('#description').val()  };
         var apiUrl = packagePath + '/save_new_content.php';
         $.ajax({
             url: apiUrl,
@@ -45,7 +106,7 @@
     function saveModifiedPageContent()
     {
         data1 = CKEDITOR.instances.editor1.getData();
-        var data = { 'pageId': $('#pageid').val(), 'userId': userId, 'title': $('#title').val(), 'content': data1 };
+        var data = { 'pageId': $('#pageid').val(), 'userId': userId, 'title': $('#title').val(), 'content': data1 , 'subject': $('#subject').val(), 'description' : $('#description').val(), 'template-id' : $('#pageid').val() };
         var apiUrl = packagePath + '/save_modified_content.php';
         $.ajax({
             url: apiUrl,
@@ -57,7 +118,7 @@
                 console.log(JSON.stringify(result));
                 toastr.success('Page Contents successfully updated.');
                 $('#title').val('');
-                window.location.href = indexPath;
+                 window.location.href = indexPath;
             },
             error: function (jqXHR, status, err)
             {
@@ -113,15 +174,14 @@
 
         $('.paging').css('margin', 'auto');
 
-        var pathname = (window.location.pathname + window.location.search).toLowerCase();
+        // var pathname = (window.location.pathname + window.location.search).toLowerCase();
 
-        const index1 = '/admin/plugins/' + packageId;
-        const index2 = '/admin/plugins/' + packageId + '/';
-        const index3 = '/admin/plugins/' + packageId + '/index.php';
-        if (pathname == index1 || pathname == index2 || pathname == index3) {
-            window.location = pagelist + '?tz=' + timezone_offset_minutes;
-        }
-
+        // const index1 = '/admin/plugins/' + packageId;
+        // const index2 = '/admin/plugins/' + packageId + '/';
+        // const index3 = '/admin/plugins/' + packageId + '/index.php';
+        // if (pathname == index1 || pathname == index2 || pathname == index3) {
+        //     window.location = pagelist + '?tz=' + timezone_offset_minutes;
+        // }
 
         //save the page contents
         $('#save').click(function ()
