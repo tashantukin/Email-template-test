@@ -19,10 +19,10 @@ $subject = $content['subject'];
 $urls = $content['pageURL'];
 $description = $content['description'];
 $templateId = $content['template-id'];
-
+$type =$content['type'];
 
 //*save template contents inside a custom table -- Name: Templates
-$template_details = array('title' => $title, 'contents' => $contents, 'subject' => $subject, 'description' => $description, 'category' => 'Orders');
+$template_details = array('title' => $title, 'contents' => $contents, 'subject' => $subject, 'description' => $description, 'category' => $type);
 echo json_encode(['contents' => $template_details ]);
 $url =  $baseUrl . '/api/v2/plugins/'. getPackageID() .'/custom-tables/Templates/rows/' . $templateId;
 echo json_encode(['contents' => $url ]);

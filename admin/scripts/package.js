@@ -82,7 +82,7 @@
 
         data1 = CKEDITOR.instances.editor1.getData();
         console.log(data1);
-        var data = { 'userId': userId, 'title': $('#title').val(), 'content': data1,'subject': $('#subject').val(), 'description' : $('#description').val()  };
+        var data = { 'userId': userId, 'title': $('#title').val(), 'content': data1,'subject': $('#subject').val(), 'description' : $('#description').val(), 'type' : $("#email-type option:selected").text()  };
         var apiUrl = packagePath + '/save_new_content.php';
         $.ajax({
             url: apiUrl,
@@ -106,7 +106,7 @@
     function saveModifiedPageContent()
     {
         data1 = CKEDITOR.instances.editor1.getData();
-        var data = { 'pageId': $('#pageid').val(), 'userId': userId, 'title': $('#title').val(), 'content': data1 , 'subject': $('#subject').val(), 'description' : $('#description').val(), 'template-id' : $('#pageid').val() };
+        var data = { 'pageId': $('#pageid').val(), 'userId': userId, 'title': $('#title').val(), 'content': data1 , 'subject': $('#subject').val(), 'description' : $('#description').val(), 'template-id' : $('#pageid').val(), 'type' : $("#email-type option:selected").text() };
         var apiUrl = packagePath + '/save_modified_content.php';
         $.ajax({
             url: apiUrl,

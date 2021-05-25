@@ -12,6 +12,7 @@ $templateContent = getContent($page_id);
 <script src="https://cdn.ckeditor.com/4.11.4/full/ckeditor.js"></script>
 <!-- package css-->
 <link href="css/pages-package.css" rel="stylesheet" type="text/css">
+<link href="css/email-template.css" rel="stylesheet" type="text/css">
 <style>
     .texteditor-container {
         width: 700px;
@@ -32,7 +33,7 @@ $templateContent = getContent($page_id);
     }
 </style>
 <!-- end header -->
-<div class="page-content">
+<div class="page-content email-template-edit-page email-plugin">
     <div class="gutter-wrapper">
         <input type="hidden" id="urlpath" value=<?php echo $userpage; ?>>
         <form>
@@ -55,23 +56,36 @@ $templateContent = getContent($page_id);
             <div class="row pgcreate-frmsec">
                 <div class="col-md-8 pgcreate-frm-l ">
                     <div class="panel-box">
-                        <div class="pgcreate-frmarea form-area">
+                        <div class="pgcreate-frmarea form-area box-email-template">
                             <div class="row">
-                                <div class="col-md-7">
-                                    <div class="form-group ">
-                                        <label class="">Template Title</label>
-                                        <input class="form-control" type="text" name="pg_title" value="<?php echo $templateContent['Records'][0]['title']; ?>" id="title" />
-
-                                        <div class="form-group">
-                                        <label>Email Subject</label>
-                                        <input type="text" class="form-control required" name="subject" id="subject" value="<?php echo $templateContent['Records'][0]['subject'];  ?> ">
-                                        </div>
-
-                                        <label class="">Description</label>
-                                        <input class="form-control" type="text" name="pg_title" id="description" required maxlength="150" value="<?php echo $templateContent['Records'][0]['description'];  ?> " />   
-
+                            <div class="col-md-12">
+                                <div class="form-group form-group-border">
+                                <label class="">Template Title  :</label>
+                                <input class="form-control" type="text" name="pg_title" id="title" required="" maxlength="65" value="<?php echo $templateContent['Records'][0]['title']; ?>">
+                                </div>
+                                <div class="form-group form-group-border">
+                                <label>Email Subject  :</label>
+                                <input type="text" class="form-control required" name="subject" id="subject" value="<?php echo $templateContent['Records'][0]['subject']; ?>">
+                                </div>
+                                <div class="form-group form-group-border">
+                                    <label class="">Description  :</label>
+                                    <input class="form-control" type="text" name="pg_title" id="description" required="" maxlength="100" value="<?php echo $templateContent['Records'][0]['description']; ?>">
+                                </div>
+                                
+                                <div class="form-group form-group-border email-type">
+                                    <label class="">Email Type</label>
+                                    <div class="parameter-drop-down">
+                                        <select class="form-group custom-blue" id="email-type">
+                                            <option value="Orders" <?php if($templateContent['Records'][0]['category'] == 'Orders'){echo("selected");}?> >Orders</option>
+                                            <option value="Payment" <?php if($templateContent['Records'][0]['category'] == 'Payment'){echo("selected");}?>>Payment</option>
+                                            <option value="Shipment" <?php if($templateContent['Records'][0]['category'] == 'Shipment'){echo("selected");}?>>Shipment</option>
+                                            <option value="Buyer/Seller" <?php if($templateContent['Records'][0]['category'] == 'Buyer/Seller'){echo("selected");}?>>Buyer / Seller</option>
+                                        </select>
                                     </div>
                                 </div>
+                                                
+                                        
+                            </div>
                                 <div class="col-md-12">
                                     <label class="">Content</label> <br>
                                     <textarea class="ckeditor" name="editor1" id="editor1"><?php echo $templateContent['Records'][0]['contents']; ?> </textarea>

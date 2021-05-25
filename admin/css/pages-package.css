@@ -162,10 +162,7 @@ a.svg {
   cursor: default;
 }
 
-.panel-box {
-  overflow: hidden;
 
-}
 
   #campaigntable tbody > tr:last-child > td {
     border-bottom: 0px;
@@ -297,3 +294,111 @@ margin-right:10px;
 float:none;
 position:relative;
 } */
+
+
+
+
+.box-email-template .form-group {
+	margin-bottom: 25px;
+}
+.box-email-template .form-group.form-group-border {
+	position: relative;
+	border-bottom: 1px solid #8D8D8D;
+}
+.box-email-template .form-group.form-group-border label {
+	position: absolute;
+	color: #999999;
+	font-weight: 600;
+	top: 5px;
+}
+.box-email-template .form-group.form-group-border label>span {
+	width: 90px;
+	display: inline-block;
+}
+.box-email-template .form-group.form-group-border .form-control {
+	border: none;
+	box-shadow: none;
+	color: #4D4D4D;
+	padding-left: 110px;
+	font-weight: 600;
+}
+.box-email-template .form-group label {
+	color: #999999;
+	font-weight: 600;
+}
+.box-email-template .form-group .form-control {
+	border: 1px solid #8D8D8D;
+	box-shadow: none;
+	color: #4D4D4D;
+	font-weight: 300;
+	border-radius: 0px;
+}
+.box-email-template .form-group textarea.form-control {
+	font-family: monospace;
+}
+
+.box-email-sidebar	.panel-box .panel-box-title {
+	color: #999999;
+	
+}
+.box-email-sidebar .panel-box-title > p {
+	font-size: 12px;
+}
+.box-email-sidebar .panel-box-title h3 {
+	float: none;
+	color: #4d4d4d;
+	font-size: 14px;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+/* .panel-box {
+	background-color: #fff;
+	box-shadow: 1px 1px 0px #999999;
+	margin-bottom: 30px;
+	font-family: 'Open Sans';
+} */
+
+
+
+.box-email-sidebar .panel-box-content h6 {
+	color: #4d4d4d;
+	font-size: 13px;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+
+.form-group.form-group-border.email-type {
+    border: 0px;
+}
+
+.email-type .parameter-drop-down {
+    margin-top: 33px;
+    padding: 0;
+}
+
+.email-type .parameter-drop-down select {
+    font-size: 14px;
+    color: #4D4D4D;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.relative-height.dynamic-vars input {
+    border: 0px !important;
+    width: 100% !important;
+    cursor: pointer !important;
+}
+
+.relative-height.dynamic-vars input:focus {
+    border: 0px !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.email-template-edit-page.email-plugin .page-content-top div {
+    display: table-cell;
+}
+
+
+
+

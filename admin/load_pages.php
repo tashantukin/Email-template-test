@@ -37,12 +37,3 @@ function getContent($templateID) {
 
 ?>
 
-
-
-
-
-
-
-
-// }
-?>

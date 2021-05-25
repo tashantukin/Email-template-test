@@ -36,13 +36,12 @@
 .box-email-template .form-group textarea.form-control {
 	font-family: monospace;
 }
-.box-email-sidebar {
+
+.box-email-sidebar	.panel-box .panel-box-title {
 	color: #999999;
+	
 }
-.box-email-sidebar .panel-box-title {
-	color: #999999;
-}
-.box-email-sidebar .panel-box-title>p {
+.box-email-sidebar .panel-box-title > p {
 	font-size: 12px;
 }
 .box-email-sidebar .panel-box-title h3 {
@@ -52,9 +51,54 @@
 	font-weight: 600;
 	margin-bottom: 10px;
 }
+/* .panel-box {
+	background-color: #fff;
+	box-shadow: 1px 1px 0px #999999;
+	margin-bottom: 30px;
+	font-family: 'Open Sans';
+} */
+
+
+
 .box-email-sidebar .panel-box-content h6 {
 	color: #4d4d4d;
 	font-size: 13px;
 	font-weight: 600;
 	margin-bottom: 10px;
 }
+
+.form-group.form-group-border.email-type {
+    border: 0px;
+}
+
+.email-type .parameter-drop-down {
+    margin-top: 33px;
+    padding: 0;
+}
+
+.email-type .parameter-drop-down select {
+    font-size: 14px;
+    color: #4D4D4D;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.relative-height .dynamic-vars input {
+    border: 0px !important;
+    width: 100% !important;
+    cursor: pointer !important;
+}
+
+.relative-height .dynamic-vars input:focus {
+    border: 0px !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+.email-template-edit-page.email-plugin .page-content-top div {
+    display: table-cell;
+}
+
+
+
+
