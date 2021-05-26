@@ -25,30 +25,6 @@
           </div>
         </div>
       </div>
-<!-- ITEMS -->
-      <div class="panel-box panel-style-ab">
-        <div class="panel-box-title">
-            <h3>Items</h3>
-            <div class="pull-right"><a class="panel-toggle" href="javascript:void(0);"><i class="icon icon-toggle"></i></a></div>
-            <div class="clearfix"></div>
-        </div>
-        <div class="panel-box-content">
-            <ul>
-                <li v-for="template in itemTemplates">
-                    <h5> {{template['title']}}</h5>
-                    <p>{{template['description']}}</p>
-                    <a class="action-edit-template" :href="'edit_content.php?pageid=' + template.Id"  :id="template.Id">Edit</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-
-
-
-
-
-
-
   <!-- ORDERS -->
       <div class="panel-box panel-style-ab">
         <div class="panel-box-title">
