@@ -62,25 +62,14 @@
                                 <option value="Payment">Payment</option>
                                 <option value="Shipment">Shipment</option>
                                 <option value="Buyer/Seller">Buyer / Seller</option>
+                                <option value="Items">Items</option>
                             </select>
                         </div>
                     </div>
                                     
                              
                   </div>
-                  <!-- <div class="form-group ">
-                    <label class="">Template Title</label>
-                    <input class="form-control" type="text" name="pg_title" id="title" required maxlength="65" />
-
-                    <div class="form-group">
-                    <label>Email Subject</label>
-                    <input type="text" class="form-control required" name="subject" id="subject" value="">
-                    </div>
-
-                    <label class="">Description</label>
-                    <input class="form-control" type="text" name="pg_title" id="description" required maxlength="100" />
-
-                  </div> -->
+                  
                 </div>
 
 
