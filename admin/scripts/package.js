@@ -55,11 +55,7 @@
                     vm.orderTemplates = vm.templates.Records.filter((template) => template.category === 'Orders')
                     vm.paymentTemplates = vm.templates.Records.filter((template) => template.category === 'Payment')
                     vm.shippingTemplates = vm.templates.Records.filter((template) => template.category === 'Shipment')
-<<<<<<< Updated upstream
-                    vm.userTemplates =  vm.templates.Records.filter((template) => template.category === 'Users')
-=======
                     vm.userTemplates = vm.templates.Records.filter((template) => template.category === 'Users')
->>>>>>> Stashed changes
 
                     console.log(vm.templates);
                     console.log(vm.orderTemplates);

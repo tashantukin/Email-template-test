@@ -116,75 +116,69 @@
                         </div>
                         <div class="panel-box-content top-remove">
                             <ul id="admin-options" class="dynamic-vars relative-height display-none" style="height: 555px;">
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{AdminContact}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{AdminEmail}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{AdminFullName}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{AdminName}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{EmailFromDomain}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{SupportEmail}}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ AdminContact }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ AdminEmail }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ AdminFullName }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ AdminName}} "></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ EmailFromDomain }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ SupportEmail}} "></li>
                             </ul>
                             <ul id="consumer-options" class="dynamic-vars relative-height " style="height: 555px;">
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ConsumerAddress}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ConsumerContact}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ConsumerEmail}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ConsumerFirstName}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ConsumerLastName}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ConsumerLoginID}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{DeliveryAddress}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{DeliveryMethod}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{DeliveryMethodName}}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ConsumerAddress }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ConsumerContact }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ConsumerEmail }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ConsumerFirstName }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ConsumerLastName }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ConsumerLoginID }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ DeliveryAddress }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ DeliveryMethod }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ DeliveryMethodName }}"></li>
                             </ul>
                             <ul id="general-options" class="dynamic-vars relative-height display-none" style="height: 555px;">
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ArcadierURL}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{CurrencyCode}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ReturnUrl}}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ArcadierURL }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ CurrencyCode }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ReturnUrl }}"></li>
                             </ul>
                             <ul id="items-options" class="dynamic-vars relative-height display-none" style="height: 555px;">
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{AddOns}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ImageUrl}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ItemName}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ItemPrice}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ItemPriceUnit}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ItemPriceUnitPlural}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ItemSubtotal}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{Variants}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{VariantsDetail}}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ AddOns }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ImageUrl }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ItemName }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ItemPrice }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ItemPriceUnit }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ItemPriceUnitPlural }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ItemSubtotal }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ Variants }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ VariantsDetail }}"></li>
                             </ul>
                             <ul id="marketplace-options" class="dynamic-vars relative-height display-none" style="height: 555px;">
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{Logo}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{MarketDomain}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{MarketName}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{MarketplaceUrl}}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ Logo }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ MarketDomain }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ MarketName }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ MarketplaceUrl }}"></li>
                             </ul>
                             <ul id="merchant-options" class="dynamic-vars relative-height display-none" style="height: 555px;">
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{SellerDisplayName}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{SellerEmail}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{SellerName}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{SubAccountEmail}}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ SellerDisplayName }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ SellerEmail }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ SellerName }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ SubAccountEmail }}"></li>
                             </ul>
                             <ul id="order-options" class="dynamic-vars relative-height display-none" style="height: 555px;">
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{Booking}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{BookingEndTime}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{CheckinCheckoutHour}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{InvoiceNo}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{OrderHistoryUrl}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{OrderID}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{OrderItem}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{OrderItemsString}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{Paid}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{Quantity}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ReviewPromptItemsString}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ShowTime}}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ InvoiceNo }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ OrderHistoryUrl }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ OrderID }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ OrderItem }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ OrderItemsString }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ Paid }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ Quantity }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{Timestamp}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ToBeCollected}}"></li>
+                        
                             </ul>
                             <ul id="pricing-options" class="dynamic-vars relative-height display-none" style="height: 555px;">
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{BulkDeliveryCost}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{DeliveryPrice}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{FreightCost}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ShippingCost}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{SubTotal}}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{Total}}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ DeliveryPrice }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ FreightCost }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ShippingCost }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ SubTotal }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ Total }}"></li>
                             </ul>
                             
                         </div>
@@ -269,14 +263,9 @@
       {
         name: 'colors',
         items: ['TextColor', 'BGColor', 'youtube']
-      },
-      '/',
-      {
-        items: ['BuyerName', 'MerchantName', 'InvoiceID', 'TotalAmount']
       }
-
     ],
-    extraPlugins: 'BuyerName, MerchantName, InvoiceID, TotalAmount'
+  
   });
   
   
@@ -284,65 +273,65 @@
   //insert another toolbar for ckeditor
 
   //buyer name
-  CKEDITOR.plugins.add('BuyerName', {
-    init: function(editor) {
-      var pluginName = 'BuyerName';
-      editor.ui.addButton('BuyerName', {
-        label: 'Buyer Name',
-        command: 'OpenWindow1'
-        // icon: 'images/cross-icon.svg'
-      });
-      var cmd = editor.addCommand('OpenWindow1', {
-        exec: showMyDialog1
-      });
-    }
-  });
+  // CKEDITOR.plugins.add('BuyerName', {
+  //   init: function(editor) {
+  //     var pluginName = 'BuyerName';
+  //     editor.ui.addButton('BuyerName', {
+  //       label: 'Buyer Name',
+  //       command: 'OpenWindow1'
+  //       // icon: 'images/cross-icon.svg'
+  //     });
+  //     var cmd = editor.addCommand('OpenWindow1', {
+  //       exec: showMyDialog1
+  //     });
+  //   }
+  // });
 
 
-  //merchant name
-  CKEDITOR.plugins.add('MerchantName', {
-    init: function(editor) {
-      var pluginName = 'MerchantName';
-      editor.ui.addButton('MerchantName', {
-        label: 'Merchant Name',
-        command: 'OpenWindow2'
-        // icon: 'images/cross-icon.svg'
-      });
-      var cmd = editor.addCommand('OpenWindow2', {
-        exec: showMyDialog2
-      });
-    }
-  });
+  // //merchant name
+  // CKEDITOR.plugins.add('MerchantName', {
+  //   init: function(editor) {
+  //     var pluginName = 'MerchantName';
+  //     editor.ui.addButton('MerchantName', {
+  //       label: 'Merchant Name',
+  //       command: 'OpenWindow2'
+  //       // icon: 'images/cross-icon.svg'
+  //     });
+  //     var cmd = editor.addCommand('OpenWindow2', {
+  //       exec: showMyDialog2
+  //     });
+  //   }
+  // });
 
-  //Invoice id
-  CKEDITOR.plugins.add('InvoiceID', {
-    init: function(editor) {
-      var pluginName = 'InvoiceID';
-      editor.ui.addButton('InvoiceID', {
-        label: 'Invoice ID',
-        command: 'OpenWindow3'
-        // icon: 'images/cross-icon.svg'
-      });
-      var cmd = editor.addCommand('OpenWindow3', {
-        exec: showMyDialog3
-      });
-    }
-  });
+  // //Invoice id
+  // CKEDITOR.plugins.add('InvoiceID', {
+  //   init: function(editor) {
+  //     var pluginName = 'InvoiceID';
+  //     editor.ui.addButton('InvoiceID', {
+  //       label: 'Invoice ID',
+  //       command: 'OpenWindow3'
+  //       // icon: 'images/cross-icon.svg'
+  //     });
+  //     var cmd = editor.addCommand('OpenWindow3', {
+  //       exec: showMyDialog3
+  //     });
+  //   }
+  // });
 
-  //total Amount
-  CKEDITOR.plugins.add('TotalAmount', {
-    init: function(editor) {
-      var pluginName = 'TotalAmount';
-      editor.ui.addButton('TotalAmount', {
-        label: 'Total Amount',
-        command: 'OpenWindow4'
-        // icon: 'images/cross-icon.svg'
-      });
-      var cmd = editor.addCommand('OpenWindow4', {
-        exec: showMyDialog4
-      });
-    }
-  });
+  // //total Amount
+  // CKEDITOR.plugins.add('TotalAmount', {
+  //   init: function(editor) {
+  //     var pluginName = 'TotalAmount';
+  //     editor.ui.addButton('TotalAmount', {
+  //       label: 'Total Amount',
+  //       command: 'OpenWindow4'
+  //       // icon: 'images/cross-icon.svg'
+  //     });
+  //     var cmd = editor.addCommand('OpenWindow4', {
+  //       exec: showMyDialog4
+  //     });
+  //   }
+  // });
 
   jQuery("#insert-there").click(function() {
     e.insertHtml('<h4 style="color:blue"> {{ Buyer Name }} </h4>');
