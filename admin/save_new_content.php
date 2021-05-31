@@ -16,7 +16,7 @@ $title = $content['title'];
 $contents = $content['content'];
 $subject = $content['subject'];
 $urls = $content['pageURL'];
-$descsription = $content['description'];
+$description = $content['description'];
 $type =$content['type'];
 
 //*save template contents inside a custom table -- Name: Templates

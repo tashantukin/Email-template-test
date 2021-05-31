@@ -1,5 +1,4 @@
-(function ()
-{
+(function() {
     var scriptSrc = document.currentScript.src;
     var urlss = window.location.href.toLowerCase();
     var packagePath = scriptSrc.replace('/scripts/package.js', '').trim();
@@ -21,8 +20,7 @@
     //run on creation page only
     new Vue({
         el: "#app",
-        data()
-        {
+        data() {
             return {
                 templates: [],
                 orderTemplates: [],
@@ -33,24 +31,23 @@
         },
 
         filters: {
-            capitalize: function (str)
-            {
+            capitalize: function(str) {
                 return str.charAt(0).toUpperCase() + str.slice(1);
             },
 
         },
 
         methods: {
-            async getAllTemplates(action){
+            async getAllTemplates(action) {
                 try {
                     vm = this;
                     const response = await axios({
-                    method: action,
-                    url: `${protocol}//${baseURL}/api/v2/plugins/${packageId}/custom-tables/Templates`,
-                   // data: data,
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
+                        method: action,
+                        url: `${protocol}//${baseURL}/api/v2/plugins/${packageId}/custom-tables/Templates`,
+                        // data: data,
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
                     })
                     const templates = await response
                     vm.templates = templates.data
@@ -58,76 +55,71 @@
                     vm.orderTemplates = vm.templates.Records.filter((template) => template.category === 'Orders')
                     vm.paymentTemplates = vm.templates.Records.filter((template) => template.category === 'Payment')
                     vm.shippingTemplates = vm.templates.Records.filter((template) => template.category === 'Shipment')
+<<<<<<< Updated upstream
                     vm.userTemplates =  vm.templates.Records.filter((template) => template.category === 'Users')
+=======
+                    vm.userTemplates = vm.templates.Records.filter((template) => template.category === 'Users')
+>>>>>>> Stashed changes
 
                     console.log(vm.templates);
                     console.log(vm.orderTemplates);
                     // return templates
-                
+
                 } catch (error) {
                     console.log("error", error);
                 }
             },
         },
-        beforeMount(){
+        beforeMount() {
             this.getAllTemplates('GET')
-         },
+        },
 
 
     })
 
-    function savePageContent()
-    {
+    function savePageContent() {
         $('#save').addClass('disabled');
 
         data1 = CKEDITOR.instances.editor1.getData();
         console.log(data1);
-        var data = { 'userId': userId, 'title': $('#title').val(), 'content': data1,'subject': $('#subject').val(), 'description' : $('#description').val(), 'type' : $("#email-type option:selected").text()  };
+        var data = { 'userId': userId, 'title': $('#title').val(), 'content': data1, 'subject': $('#subject').val(), 'description': $('#description').val(), 'type': $("#email-type option:selected").text() };
         var apiUrl = packagePath + '/save_new_content.php';
         $.ajax({
             url: apiUrl,
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(data),
-            success: function (result)
-            {
+            success: function(result) {
                 console.log(JSON.stringify(result));
                 toastr.success('New email template successfully saved.');
                 $('#title').val('');
                 $('#save').removeClass('disabled');
                 window.location.href = indexPath;
             },
-            error: function (jqXHR, status, err)
-            {
-            }
+            error: function(jqXHR, status, err) {}
         });
     }
 
-    function saveModifiedPageContent()
-    {
+    function saveModifiedPageContent() {
         data1 = CKEDITOR.instances.editor1.getData();
-        var data = { 'pageId': $('#pageid').val(), 'userId': userId, 'title': $('#title').val(), 'content': data1 , 'subject': $('#subject').val(), 'description' : $('#description').val(), 'template-id' : $('#pageid').val(), 'type' : $("#email-type option:selected").text() };
+        var data = { 'pageId': $('#pageid').val(), 'userId': userId, 'title': $('#title').val(), 'content': data1, 'subject': $('#subject').val(), 'description': $('#description').val(), 'template-id': $('#pageid').val(), 'type': $("#email-type option:selected").text() };
         var apiUrl = packagePath + '/save_modified_content.php';
         $.ajax({
             url: apiUrl,
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(data),
-            success: function (result)
-            {
+            success: function(result) {
                 console.log(JSON.stringify(result));
                 toastr.success('Page Contents successfully updated.');
                 $('#title').val('');
-                 window.location.href = indexPath;
+                window.location.href = indexPath;
             },
-            error: function (jqXHR, status, err)
-            {
-            }
+            error: function(jqXHR, status, err) {}
         });
     }
 
-    function deletePage()
-    {
+    function deletePage() {
         var data = { 'pageId': pagedids, 'userId': userId };
         console.log(pagedids);
         var apiUrl = packagePath + '/delete_content.php';
@@ -136,20 +128,16 @@
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(data),
-            success: function (result)
-            {
+            success: function(result) {
                 console.log(JSON.stringify(result));
                 toastr.success('Page Content successfully deleted.');
                 location.reload();
             },
-            error: function (jqXHR, status, err)
-            {
-            }
+            error: function(jqXHR, status, err) {}
         });
     }
 
-    function sendMail()
-    {
+    function sendMail() {
         var data = { 'template': $('.record_id').val(), 'userId': userId, 'to': $('#to').val(), 'from': $('#from').val(), 'buyerName': $('#buyerName').val(), 'merchantName': $('#merchantName').val(), 'invoice': $('#invoiceID').val() };
         var apiUrl = packagePath + '/send_edm.php';
         $.ajax({
@@ -157,20 +145,16 @@
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(data),
-            success: function (result)
-            {
+            success: function(result) {
                 console.log(JSON.stringify(result));
                 toastr.success('Sample Email has been sent. Please check your email.');
                 location.reload();
             },
-            error: function (jqXHR, status, err)
-            {
-            }
+            error: function(jqXHR, status, err) {}
         });
     }
 
-    $(document).ready(function ()
-    {
+    $(document).ready(function() {
 
         $('.paging').css('margin', 'auto');
 
@@ -184,46 +168,40 @@
         // }
 
         //save the page contents
-        $('#save').click(function ()
-        {
+        $('#save').click(function() {
 
             //add field validations
             savePageContent();
             // }
         });
         //save modified page contents
-        $('#edit').click(function ()
-        {
+        $('#edit').click(function() {
 
             if ($("#title").val() == "" || data1 == "") {
                 console.log('true');
                 toastr.error('Please fill in empty fields.');
 
-            }
-            else {
+            } else {
                 saveModifiedPageContent();
             }
         });
 
         //delete the page contents
-        $('#popup_btnconfirm').click(function ()
-        {
+        $('#popup_btnconfirm').click(function() {
 
             pagedids = $('.record_id').val();
             deletePage();
             //
         });
 
-        $('#popup_sendMail').click(function ()
-        {
+        $('#popup_sendMail').click(function() {
             sendMail();
 
         });
 
 
         //cancel button
-        $('#popup_btnconfirm_cancel').click(function ()
-        {
+        $('#popup_btnconfirm_cancel').click(function() {
             window.location.href = indexPath;
         });
 
