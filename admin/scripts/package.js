@@ -57,7 +57,7 @@
 
                     vm.orderTemplates = vm.templates.Records.filter((template) => template.category === 'Orders')
                     vm.paymentTemplates = vm.templates.Records.filter((template) => template.category === 'Payment')
-                    vm.shippingTemplates = vm.templates.Records.filter((template) => template.category === 'Shipping')
+                    vm.shippingTemplates = vm.templates.Records.filter((template) => template.category === 'Shipment')
                     vm.userTemplates =  vm.templates.Records.filter((template) => template.category === 'Users')
 
                     console.log(vm.templates);
