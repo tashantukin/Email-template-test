@@ -143,6 +143,13 @@ $templateContent = getContent($page_id);
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ DeliveryAddress }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ DeliveryMethod }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ DeliveryMethodName }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ AddressLine1 }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ AddressLine2 }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ AddressState }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ AddressCity }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ AddressCountry }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ AddressPostcode }}"></li>
+
                             </ul>
                             <ul id="general-options" class="dynamic-vars relative-height display-none" style="height: 555px;">
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ArcadierURL }}"></li>
@@ -165,6 +172,8 @@ $templateContent = getContent($page_id);
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ MarketDomain }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ MarketName }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ MarketplaceUrl }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ MarketEmail }}"></li>
+
                             </ul>
                             <ul id="merchant-options" class="dynamic-vars relative-height display-none" style="height: 555px;">
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ SellerDisplayName }}"></li>
@@ -181,6 +190,9 @@ $templateContent = getContent($page_id);
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ Paid }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ Quantity }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{Timestamp}}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ SubTotal }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ Total }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ GrandTotal }}"></li>
                         
                             </ul>
                             <ul id="pricing-options" class="dynamic-vars relative-height display-none" style="height: 555px;">
