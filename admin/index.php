@@ -42,6 +42,7 @@
             </ul>
         </div>
     </div>
+
     <!-- PAYMENTS -->
     <div class="panel-box panel-style-ab">
         <div class="panel-box-title">
@@ -162,6 +163,7 @@
 <!-- begin footer -->
 <script type="text/javascript">
   jQuery(document).ready(function() {
+    
     $('#no-more-tables1').DataTable({
       // "paging":   false,
       "order": [

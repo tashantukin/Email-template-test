@@ -1,6 +1,7 @@
 <?php
 include 'load_pages.php';
 $page_id = $_GET['pageid'];
+$page_redirect = $_GET['redirect'];
 $templateContent = getContent($page_id);
 
 //var_dump($templateContent['Records'][0]);
@@ -46,7 +47,7 @@ $templateContent = getContent($page_id);
                     <div class="private-setting-switch">
                         <!-- <a href="#" class="btn-black-mdx" id="showpreviewEdit">Preview</a> -->
                         <span class="grey-btn btn_delete_act">Cancel</span>
-                        <a href="#" class="save-btn" id="edit">Save</a>
+                        <a href="#" class="save-btn" id="edit" redirect="<?php echo $page_redirect; ?>">Save</a>
 
                         <input type="hidden" id="pageid" value="<?php echo $templateContent['Records'][0]['Id']; ?>">
                     </div>
@@ -189,7 +190,7 @@ $templateContent = getContent($page_id);
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ OrderItemsString }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ Paid }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ Quantity }}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{Timestamp}}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ Timestamp }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ SubTotal }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ Total }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ GrandTotal }}"></li>
@@ -225,7 +226,7 @@ $templateContent = getContent($page_id);
         </div>
         <div class="btn-area text-center smaller">
             <input type="button" value="Cancel" class="btn-black-mdx " id="popup_btncancel">
-            <input id="popup_btnconfirm_cancel" type="button" value="Okay" class="my-btn btn-blue">
+            <input id="popup_btnconfirm_cancel" redirect="<?php echo $page_redirect; ?>"   type="button" value="Okay" class="my-btn btn-blue">
             <div class="clearfix"></div>
         </div>
     </div>
@@ -451,6 +452,7 @@ $templateContent = getContent($page_id);
 
 
         jQuery('.btn_delete_act').click(function() {
+            
             jQuery('#DeleteCustomMethod').show();
             jQuery('#cover').show();
         });

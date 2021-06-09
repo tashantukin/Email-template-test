@@ -17,6 +17,8 @@
     const baseURL = window.location.hostname;
     const protocol = window.location.protocol;
 
+    const emailTemplatePath = `${protocol}//${baseURL}/admin/emailcustomisation/index`;
+
     //run on creation page only
     new Vue({
         el: "#app",
@@ -73,7 +75,7 @@
 
     })
 
-    function savePageContent() {
+    function savePageContent(el) {
         $('#save').addClass('disabled');
 
         data1 = CKEDITOR.instances.editor1.getData();
@@ -90,13 +92,19 @@
                 toastr.success('New email template successfully saved.');
                 $('#title').val('');
                 $('#save').removeClass('disabled');
-                window.location.href = indexPath;
+
+                if (el.attr('redirect') == 'admin') {
+                    window.location.href = emailTemplatePath;
+                } else {
+                    window.location.href = indexPath;
+                }
+                //window.location.href = indexPath;
             },
             error: function(jqXHR, status, err) {}
         });
     }
 
-    function saveModifiedPageContent() {
+    function saveModifiedPageContent(el) {
         data1 = CKEDITOR.instances.editor1.getData();
         var data = { 'pageId': $('#pageid').val(), 'userId': userId, 'title': $('#title').val(), 'content': data1, 'subject': $('#subject').val(), 'description': $('#description').val(), 'template-id': $('#pageid').val(), 'type': $("#email-type option:selected").text() };
         var apiUrl = packagePath + '/save_modified_content.php';
@@ -109,7 +117,12 @@
                 console.log(JSON.stringify(result));
                 toastr.success('Page Contents successfully updated.');
                 $('#title').val('');
-                window.location.href = indexPath;
+                if (el.attr('redirect') == 'admin') {
+                    window.location.href = emailTemplatePath;
+                } else {
+                    window.location.href = indexPath;
+                }
+                
             },
             error: function(jqXHR, status, err) {}
         });
@@ -167,7 +180,7 @@
         $('#save').click(function() {
 
             //add field validations
-            savePageContent();
+            savePageContent($(this));
             // }
         });
         //save modified page contents
@@ -178,7 +191,7 @@
                 toastr.error('Please fill in empty fields.');
 
             } else {
-                saveModifiedPageContent();
+                saveModifiedPageContent($(this));
             }
         });
 
@@ -197,9 +210,20 @@
 
 
         //cancel button
-        $('#popup_btnconfirm_cancel').click(function() {
-            window.location.href = indexPath;
+        $('#popup_btnconfirm_cancel').click(function ()
+        {
+            
+            if ($(this).attr('redirect') == 'admin') {
+                window.location.href = emailTemplatePath;
+            } else {
+                window.location.href = indexPath;
+            }
+
+            
         });
+
+
+        
 
     });
 })();
