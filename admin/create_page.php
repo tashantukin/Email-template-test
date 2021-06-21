@@ -36,15 +36,22 @@
       <div class="row pgcreate-frmsec">
         <div class="col-md-8 pgcreate-frm-l ">
           <div class="panel-box">
-            <div class="pgcreate-frmarea form-area box-email-template ">
+            <div class="pgcreate-frmarea form-area box-email-template">
               <div class="row">
                 <!-- <div class="col-md-7"> -->
                 <div class="col-md-12">
-
-                    <div class="form-group form-group-border">
+                <div class="row">
+                
+                <div class="form-group form-group-border col-sm-8">
                       <label class="">Template Title  :</label>
                       <input class="form-control" type="text" name="pg_title" id="title" required="" maxlength="65">
                     </div>
+
+                    <div class="col-sm-4 text-right"><a href="javascript:void(0)" onclick="$('.group-cc-bcc').hasClass('hide') ? $('.group-cc-bcc').removeClass('hide') : $('.group-cc-bcc').addClass('hide');" class="mybtn-default show-hide-bcc-cc-btn">Show Cc / Bcc</a></div>
+                  
+                </div>
+                    
+                   
                     <div class="form-group form-group-border">
                       <label>Email Subject  :</label>
                       <input type="text" class="form-control required" name="subject" id="subject" value="">
@@ -54,7 +61,7 @@
                         <input class="form-control" type="text" name="pg_title" id="description" required="" maxlength="100">
                     </div>
 
-                    <div class="group-cc-bcc">
+                    <div class="group-cc-bcc hide">
                       <div class="form-group form-group-border">
                       <label><span>Cc</span> : </label> 
                       <input type="text" name="cc_email" id="cc_email" data-original-database-value="" class="form-control"></div> 

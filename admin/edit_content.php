@@ -60,9 +60,15 @@ $templateContent = getContent($page_id);
                         <div class="pgcreate-frmarea form-area box-email-template">
                             <div class="row">
                             <div class="col-md-12">
-                                <div class="form-group form-group-border">
-                                <label class="">Template Title  :</label>
-                                <input class="form-control" type="text" name="pg_title" id="title" required="" maxlength="65" value="<?php echo $templateContent['Records'][0]['title']; ?>">
+                                 <div class="row">
+                
+                                    <div class="form-group form-group-border col-sm-8">
+                                        <label class="">Template Title  :</label>
+                                        <input class="form-control" type="text" name="pg_title" id="title" required="" maxlength="65" value="<?php echo $templateContent['Records'][0]['title']; ?>">
+                                        </div>
+
+                                    <div class="col-sm-4 text-right"><a href="javascript:void(0)" onclick="$('.group-cc-bcc').hasClass('hide') ? $('.group-cc-bcc').removeClass('hide') : $('.group-cc-bcc').addClass('hide');" class="mybtn-default show-hide-bcc-cc-btn">Show Cc / Bcc</a></div>
+                                
                                 </div>
                                 <div class="form-group form-group-border">
                                 <label>Email Subject  :</label>
@@ -73,12 +79,13 @@ $templateContent = getContent($page_id);
                                     <input class="form-control" type="text" name="pg_title" id="description" required="" maxlength="100" value="<?php echo $templateContent['Records'][0]['description']; ?>">
                                 </div>
 
-                                <div class="group-cc-bcc">
+                                <div class="group-cc-bcc hide">
                                     <div class="form-group form-group-border">
                                     <label><span>Cc</span> : </label> 
-                                    <input type="text" name="cc_email" id="cc_email" data-original-database-value="" class="form-control"></div> 
+                                    <input type="text" name="cc_email" id="cc_email" data-original-database-value="" class="form-control" value="<?php echo $templateContent['Records'][0]['cc']; ?>"></div> 
                                     
-                                    <div class="form-group form-group-border"><label><span>Bcc</span> : </label> <input type="text" name="bcc_email" id="bcc_email" data-original-database-value="" class="form-control">
+                                    <div class="form-group form-group-border"><label><span>Bcc</span> : </label> 
+                                    <input type="text" name="bcc_email" id="bcc_email" data-original-database-value="" class="form-control" value="<?php echo $templateContent['Records'][0]['bcc']; ?>">
                                 </div>
                                 
                                 </div>

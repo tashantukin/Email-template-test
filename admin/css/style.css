@@ -100,5 +100,14 @@
 }
 
 
-
+.box-email-template .mybtn-default {
+	background-color: transparent;
+	color: #999;
+	border: 1px solid #999;
+	font-weight: 600;
+	width: 121px;
+	height: 37px;
+	display: inline-block;
+	padding: 8px 10px;
+}
 
