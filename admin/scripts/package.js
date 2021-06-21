@@ -18,6 +18,7 @@
     const protocol = window.location.protocol;
 
     const emailTemplatePath = `${protocol}//${baseURL}/admin/emailcustomisation/index`;
+  
 
     //run on creation page only
     new Vue({
@@ -78,9 +79,25 @@
     function savePageContent(el) {
         $('#save').addClass('disabled');
 
+        var cc ='', bcc='';
+        //cc 
+      if ($('#cc_email').val()) {
+          var ccTrim = $('#cc_email').val().trim();
+           cc = ccTrim.split();
+      }
+        
+        //bcc
+      if ($('#bcc_email').val()) {
+          var bccTrim = $('#bcc_email').val().trim();
+          bcc = bccTrim.split(); 
+            
+      }
+
         data1 = CKEDITOR.instances.editor1.getData();
         console.log(data1);
-        var data = { 'userId': userId, 'title': $('#title').val(), 'content': data1, 'subject': $('#subject').val(), 'description': $('#description').val(), 'type': $("#email-type option:selected").text() };
+      
+
+        var data = { 'userId': userId, 'title': $('#title').val(), 'content': data1, 'subject': $('#subject').val(), 'description': $('#description').val(), 'type': $("#email-type option:selected").text(), 'cc' : cc, 'bcc' : bcc};
         var apiUrl = packagePath + '/save_new_content.php';
         $.ajax({
             url: apiUrl,
@@ -106,7 +123,21 @@
 
     function saveModifiedPageContent(el) {
         data1 = CKEDITOR.instances.editor1.getData();
-        var data = { 'pageId': $('#pageid').val(), 'userId': userId, 'title': $('#title').val(), 'content': data1, 'subject': $('#subject').val(), 'description': $('#description').val(), 'template-id': $('#pageid').val(), 'type': $("#email-type option:selected").text() };
+        var cc ='', bcc='';
+        //cc 
+      if ($('#cc_email').val()) {
+          var ccTrim = $('#cc_email').val().trim();
+           cc = ccTrim.split();
+      }
+        
+        //bcc
+      if ($('#bcc_email').val()) {
+          var bccTrim = $('#bcc_email').val().trim();
+          bcc = bccTrim.split(); 
+            
+      }
+
+        var data = { 'pageId': $('#pageid').val(), 'userId': userId, 'title': $('#title').val(), 'content': data1, 'subject': $('#subject').val(), 'description': $('#description').val(), 'template-id': $('#pageid').val(), 'type': $("#email-type option:selected").text(), 'cc' : cc, 'bcc' : bcc };
         var apiUrl = packagePath + '/save_modified_content.php';
         $.ajax({
             url: apiUrl,

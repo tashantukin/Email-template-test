@@ -72,6 +72,16 @@ $templateContent = getContent($page_id);
                                     <label class="">Description  :</label>
                                     <input class="form-control" type="text" name="pg_title" id="description" required="" maxlength="100" value="<?php echo $templateContent['Records'][0]['description']; ?>">
                                 </div>
+
+                                <div class="group-cc-bcc">
+                                    <div class="form-group form-group-border">
+                                    <label><span>Cc</span> : </label> 
+                                    <input type="text" name="cc_email" id="cc_email" data-original-database-value="" class="form-control"></div> 
+                                    
+                                    <div class="form-group form-group-border"><label><span>Bcc</span> : </label> <input type="text" name="bcc_email" id="bcc_email" data-original-database-value="" class="form-control">
+                                </div>
+                                
+                                </div>
                                 
                                 <div class="form-group form-group-border email-type">
                                     <label class="">Email Type</label>
