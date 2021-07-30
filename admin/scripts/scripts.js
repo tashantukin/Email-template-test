@@ -53,7 +53,7 @@
 
     $(document).ready(function() {
 
-        if (url.indexOf("/admin/emailcustomisation") >= 0) {
+        if (url.indexOf("/admin/emailcustomisation/index") >= 0) {
 
             //1. Hide the deprecated EDM's on the Orders List
             
