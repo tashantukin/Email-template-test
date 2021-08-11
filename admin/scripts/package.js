@@ -46,7 +46,7 @@
                     vm = this;
                     const response = await axios({
                         method: action,
-                        url: `${protocol}//${baseURL}/api/v2/plugins/${packageId}/custom-tables/Templates`,
+                        url: `${protocol}//${baseURL}/api/v2/plugins/${packageId}/custom-tables/Templates?pageSize=50&sort=-CreatedDateTime`,
                         // data: data,
                         headers: {
                             'Authorization': `Bearer ${token}`

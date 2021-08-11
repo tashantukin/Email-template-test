@@ -44,7 +44,7 @@
                 
                 <div class="form-group form-group-border col-sm-8">
                       <label class="">Template Title  :</label>
-                      <input class="form-control" type="text" name="pg_title" id="title" required="" maxlength="65">
+                      <input class="form-control" type="text" name="pg_title" id="title" required="" maxlength="70">
                     </div>
 
                     <div class="col-sm-4 text-right"><a href="javascript:void(0)" onclick="$('.group-cc-bcc').hasClass('hide') ? $('.group-cc-bcc').removeClass('hide') : $('.group-cc-bcc').addClass('hide');" class="mybtn-default show-hide-bcc-cc-btn">Show Cc / Bcc</a></div>
@@ -58,7 +58,7 @@
                     </div>
                     <div class="form-group form-group-border">
                         <label class="">Description  :</label>
-                        <input class="form-control" type="text" name="pg_title" id="description" required="" maxlength="100">
+                        <input class="form-control" type="text" name="pg_title" id="description" required="" maxlength="110">
                     </div>
 
                     <div class="group-cc-bcc hide">
