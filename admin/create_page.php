@@ -75,7 +75,7 @@
                         <label class="">Email Type</label>
                         <div class="parameter-drop-down">
                             <select class="form-group custom-blue" id="email-type">
-                                <option value="Orders" selected="">Orders</option>
+                                <option value="Orders" selected="">Booking</option>
                                 <option value="Payment">Payment</option>
                                 <option value="Shipment">Shipment</option>
                                 <option value="Buyer/Seller">Buyer / Seller</option>
@@ -137,8 +137,7 @@
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ AdminEmail }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ AdminFullName }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ AdminName}} "></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ EmailFromDomain }}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ SupportEmail}} "></li>
+
                             </ul>
                             <ul id="consumer-options" class="dynamic-vars relative-height " style="height: 555px;">
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ConsumerAddress }}"></li>
@@ -146,7 +145,7 @@
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ConsumerEmail }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ConsumerFirstName }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ConsumerLastName }}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ConsumerLoginID }}"></li>
+                               
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ DeliveryAddress }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ DeliveryMethod }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ DeliveryMethodName }}"></li>
@@ -163,15 +162,13 @@
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ReturnUrl }}"></li>
                             </ul>
                             <ul id="items-options" class="dynamic-vars relative-height display-none" style="height: 555px;">
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ AddOns }}"></li>
+
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ImageUrl }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ItemName }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ItemPrice }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ItemPriceUnit }}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ItemPriceUnitPlural }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ ItemSubtotal }}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ Variants }}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ VariantsDetail }}"></li>
+                             
                             </ul>
                             <ul id="marketplace-options" class="dynamic-vars relative-height display-none" style="height: 555px;">
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ Logo }}"></li>
@@ -184,14 +181,14 @@
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ SellerDisplayName }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ SellerEmail }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ SellerName }}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ SubAccountEmail }}"></li>
+                             
                             </ul>
                             <ul id="order-options" class="dynamic-vars relative-height display-none" style="height: 555px;">
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ InvoiceNo }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ OrderHistoryUrl }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ OrderID }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ OrderItem }}"></li>
-                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ OrderItemsString }}"></li>
+                                <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ Booking }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ Paid }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ Quantity }}"></li>
                                 <li><input class="btn-dynamic-var" onclick="higlightAll(this)" readonly="" value="{{ Timestamp }}"></li>
@@ -408,7 +405,6 @@
     meta.text(plain_text);
 
   }
-
 
   CKEDITOR.config.removePlugins = 'elementspath';
   CKEDITOR.config.height = '600px';

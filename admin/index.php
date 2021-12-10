@@ -28,7 +28,7 @@
   <!-- ORDERS -->
       <div class="panel-box panel-style-ab">
         <div class="panel-box-title">
-            <h3>Orders</h3>
+            <h3>Bookings</h3>
             <div class="pull-right"><a class="panel-toggle" href="javascript:void(0);"><i class="icon icon-toggle"></i></a></div>
             <div class="clearfix"></div>
         </div>
@@ -44,7 +44,7 @@
     </div>
 
     <!-- PAYMENTS -->
-    <div class="panel-box panel-style-ab">
+    <!-- <div class="panel-box panel-style-ab">
         <div class="panel-box-title">
             <h3>Payment</h3>
             <div class="pull-right"><a class="panel-toggle" href="javascript:void(0);"><i class="icon icon-toggle"></i></a></div>
@@ -59,10 +59,10 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </div> -->
 
  <!-- SHIPPING -->
- <div class="panel-box panel-style-ab">
+ <!-- <div class="panel-box panel-style-ab">
         <div class="panel-box-title">
             <h3>Shipment</h3>
             <div class="pull-right"><a class="panel-toggle" href="javascript:void(0);"><i class="icon icon-toggle"></i></a></div>
@@ -77,7 +77,7 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </div> -->
     
 <!-- users -->
 <div class="panel-box panel-style-ab">
